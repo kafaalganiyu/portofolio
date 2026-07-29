@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kafa Al Ganiyu   Data Analyst Portfolio</title>
+<title>Kafa Al Ganiyu — Data Analyst Portfolio</title>
 <meta name="description" content="Personal portfolio of Kafa Al Ganiyu, Data Analyst & Information Systems student at UIN Syarif Hidayatullah Jakarta.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -74,7 +74,7 @@
   }
 
   /* ============================================
-     SHARED BITS   eyebrow, section heading, chips
+     SHARED BITS — eyebrow, section heading, chips
      ============================================ */
   .eyebrow{
     display:inline-flex;
@@ -105,6 +105,7 @@
     font-size:17px;
     color:var(--ink-soft);
     max-width:560px;
+    text-align:justify;
   }
   .section-pad{ padding:110px 0; }
   @media(max-width:768px){ .section-pad{ padding:76px 0; } }
@@ -359,6 +360,7 @@
     color:rgba(252,253,255,0.82);
     font-size:15.5px;
     max-width:460px;
+    text-align:justify;
   }
   .hero-stats{
     display:flex;
@@ -436,6 +438,7 @@
     align-items:center;
     justify-content:center;
     box-shadow:var(--shadow-soft);
+    overflow:hidden;
   }
   .about-visual .monogram{
     font-family:var(--font-display);
@@ -444,10 +447,21 @@
     text-transform:uppercase;
     letter-spacing:0.02em;
   }
+  .about-visual .profile-photo{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:top center;
+    z-index:0;
+  }
   .about-visual .ring{
     position:absolute; inset:16px;
     border:2px dashed rgba(116, 127, 147, 0.4);
     border-radius:26px;
+    z-index:1;
+    pointer-events:none;
   }
   .about-visual .chip{
     position:absolute;
@@ -461,12 +475,14 @@
     display:flex;
     align-items:center;
     justify-content:space-between;
+    z-index:2;
   }
   .about-visual .chip span{ font-weight:500; color:var(--ink-soft); font-size:11.5px; }
 
   .about-copy p{
     font-size:16.5px;
     color:var(--ink-soft);
+    text-align:justify;
   }
   .about-copy p + p{ margin-top:14px; }
   .about-copy strong{ color:var(--navy); }
@@ -500,6 +516,7 @@
   .tool-chip.tool-chip--tableau .logo-box img{ width:84%; height:84%; }
   .tool-chip.tool-chip--looker .logo-box img{ width:80%; height:80%; }
   .tool-chip.tool-chip--notion .logo-box img{ width:76%; height:76%; }
+  .tool-chip.tool-chip--powerbi .logo-box img{ width:74%; height:74%; }
   .tool-chip .logo-box .ph{
     font-family:var(--font-display);
     font-size:11px;
@@ -551,8 +568,8 @@
     padding:8px;
   }
   .logo-slot.logo-slot--white img{
-    width:92%;
-    height:92%;
+    width:82%;
+    height:82%;
   }
   .logo-slot.logo-slot--plain img{
     width:100%;
@@ -560,7 +577,7 @@
     object-fit:contain;
   }
   .logo-slot .ph-text{ font-size:11px; font-weight:700; color:var(--ink-soft); text-align:center; line-height:1.4; }
-  .edu-photo{ width:160px; flex-shrink:0; }
+  .edu-photo{ width:150px; flex-shrink:0; }
   .edu-badge{
     width:96px; height:96px;
     background:var(--navy);
@@ -599,6 +616,7 @@
     color:var(--navy-ink);
     max-width:620px;
     font-size:15.5px;
+    text-align:justify;
   }
   .edu-focus{
     display:flex; gap:10px; flex-wrap:wrap; margin-top:18px;
@@ -614,7 +632,7 @@
   }
   @media(max-width:640px){
     .edu-card{ grid-template-columns:1fr; padding:32px; }
-    .edu-photo{ width:100%; max-width:220px; }
+    .edu-photo{ width:100%; max-width:200px; }
   }
 
   /* ============================================
@@ -696,6 +714,7 @@
     color:var(--ink-soft);
     padding-left:18px;
     position:relative;
+    text-align:justify;
   }
   .exp-card li::before{
     content:'';
@@ -794,10 +813,10 @@
     line-height:1;
     flex-shrink:0;
   }
-  .org-intro p{ color:var(--navy-ink); font-size:15px; max-width:640px; }
+  .org-intro p{ color:var(--navy-ink); font-size:15px; max-width:640px; text-align:justify; }
   .org-intro .org-text{ flex:1; min-width:260px; }
-  .org-photo{ width:120px; flex-shrink:0; margin-left:auto; }
-  @media(max-width:640px){ .org-photo{ margin-left:0; } }
+  .org-photo{ width:150px; flex-shrink:0; margin-left:auto; }
+  @media(max-width:640px){ .org-photo{ margin-left:0; width:100%; max-width:200px; } }
 
   .org-grid{
     display:grid;
@@ -832,6 +851,7 @@
     margin-top:10px;
     font-size:13.3px;
     color:var(--ink-soft);
+    text-align:justify;
   }
   .org-tag.more{
     display:flex; align-items:center; justify-content:center;
@@ -871,6 +891,8 @@
   .skill-panel.hard h3 .ic svg{ stroke:var(--gold); width:18px;height:18px; }
   .skill-panel.soft h3 .ic{ background:var(--cream); }
   .skill-panel.soft h3 .ic svg{ stroke:var(--navy); width:18px;height:18px; }
+
+  .skill-panel p{ text-align:justify; }
 
   .skill-list{ margin-top:24px; display:flex; flex-direction:column; gap:1px; }
   .skill-row{
@@ -1035,7 +1057,7 @@
     text-transform:uppercase;
     color:var(--navy);
   }
-  .proj-body p{ font-size:13.8px; color:var(--ink-soft); flex:1; }
+  .proj-body p{ font-size:13.8px; color:var(--ink-soft); flex:1; text-align:justify; }
   .proj-tags{ display:flex; flex-wrap:wrap; gap:8px; }
   .proj-tags span{
     font-size:11.5px; font-weight:700;
@@ -1076,7 +1098,7 @@
     text-transform:uppercase;
     line-height:1.05;
   }
-  .contact-left p{ margin-top:16px; color:rgba(252,253,255,0.78); max-width:400px; font-size:15px; }
+  .contact-left p{ margin-top:16px; color:rgba(252,253,255,0.78); max-width:400px; font-size:15px; text-align:justify; }
   .contact-methods{ margin-top:30px; display:flex; flex-direction:column; gap:14px; }
   .contact-method{
     display:flex; align-items:center; gap:14px;
@@ -1176,7 +1198,7 @@
       <a href="#projects">Projects</a>
     </div>
     <div class="nav-cta">
-      <a href="#contact" class="btn btn-ghost">Kontak</a>
+      <a href="#contact" class="btn btn-ghost">Contact</a>
       <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -1208,15 +1230,15 @@
         <span class="row dot-gold">DECISIONS</span>
       </h1>
       <p class="hero-sub">
-        Halo, saya <strong>Kafa Al Ganiyu</strong>   Information Systems student & Data Analyst
-        yang terbiasa mengubah data mentah jadi insight yang mendukung keputusan.
+        Hi, I'm <strong>Kafa Al Ganiyu</strong> — an Information Systems student & Data Analyst
+        experienced in turning raw data into insights that support decision-making.
       </p>
       <div class="hero-actions">
         <a href="#experience" class="btn btn-primary">
-          Lihat Pengalaman
+          View Experience
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <a href="#contact" class="btn btn-ghost">Hubungi Saya</a>
+        <a href="#contact" class="btn btn-ghost">Contact Me</a>
       </div>
     </div>
 
@@ -1226,31 +1248,31 @@
           <span class="eyebrow on-dark">Kafa Al Ganiyu</span>
           <h3 style="margin-top:12px;">Where Data Meets Decisions</h3>
           <p>
-            Berpengalaman mengelola data institusional lintas 13 fakultas   mulai dari pengumpulan,
-            pembersihan, validasi, hingga visualisasi   dengan tools seperti KNIME, Google Sheets,
-            Excel, Tableau, Looker, dan MySQL.
+            Experienced in managing institutional data across 13 faculties — from collection, cleaning,
+            and validation to visualization — using tools such as KNIME, Google Sheets, Excel, Tableau,
+            Looker, Power BI, and MySQL.
           </p>
           <div class="hero-stats">
             <div class="hero-stat">
               <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></span>
-              <div><b>13 Fakultas</b><span>Data dikelola</span></div>
+              <div><b>13 Faculties</b><span>Data managed</span></div>
             </div>
             <div class="hero-stat">
               <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg></span>
-              <div><b>10 Staff</b><span>Dipimpin</span></div>
+              <div><b>10 Staff</b><span>Led</span></div>
             </div>
             <div class="hero-stat">
               <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.5 6.5L21 9l-5 4.5L17.5 21 12 17l-5.5 4L8 13.5 3 9l6.5-.5z"/></svg></span>
-              <div><b>5+ Tools</b><span>Dikuasai</span></div>
+              <div><b>5+ Tools</b><span>Mastered</span></div>
             </div>
           </div>
         </div>
 
         <div style="position:relative;">
           <div class="featured-card">
-            <div class="fc-label">Pengalaman Terakhir</div>
+            <div class="fc-label">Latest Experience</div>
             <h4>Leader of Data Specialist</h4>
-            <div class="fc-org">Pusat Karier   UIN Syarif Hidayatullah Jakarta</div>
+            <div class="fc-org">Career Center — UIN Syarif Hidayatullah Jakarta</div>
             <span class="fc-period">Nov 2025 – Jul 2026</span>
           </div>
         </div>
@@ -1273,29 +1295,30 @@
         </div>
       </div>
       <div class="about-copy reveal">
-        <span class="eyebrow">Hola, I'm Kafa</span>
+        <span class="eyebrow">Hello, I'm Kafa</span>
         <h2 style="margin-top:16px; font-size:clamp(28px,3.6vw,42px); text-transform:uppercase; line-height:1.08;">
-          Data Analyst dengan <span style="color:var(--gold); -webkit-text-stroke:1px var(--navy);">Fokus Insight</span>
+          Data Analyst with an <span style="color:var(--gold); -webkit-text-stroke:1px var(--navy);">Insight Focus</span>
         </h2>
         <div style="margin-top:20px;">
           <p>
-            Seorang <strong>Data Analyst</strong> dengan pengalaman magang dalam pengelolaan data institusional,
-            dengan spesifikasi tools seperti <strong>KNIME, Google Sheets, Excel, Tableau, Looker, dan MySQL</strong>
-            untuk mendukung proses pengumpulan, validasi, hingga visualisasi data.
+            A <strong>Data Analyst</strong> with internship experience in institutional data management, skilled in
+            tools such as <strong>KNIME, Google Sheets, Excel, Tableau, Looker, Power BI, and MySQL</strong>
+            to support the process of data collection, validation, and visualization.
           </p>
           <p>
-            Berbekal kemampuan analitis dan problem-solving, saya terbiasa menerjemahkan data mentah
-            menjadi insight yang mendukung pengambilan keputusan dan evaluasi institusional.
+            Backed by strong analytical and problem-solving skills, I'm experienced in translating raw data
+            into insights that support decision-making and institutional evaluation.
           </p>
         </div>
         <div class="about-tools">
-          <div class="lbl">Tools yang sering digunakan</div>
+          <div class="lbl">Tools I Frequently Use</div>
           <div class="tool-row">
             <div class="tool-chip"><div class="logo-box"><img src="public/knime.png" alt="KNIME" title="KNIME"></div><span>KNIME</span></div>
             <div class="tool-chip"><div class="logo-box"><img src="public/sheets.png" alt="Google Sheets" title="Google Sheets"></div><span>Google Sheets</span></div>
             <div class="tool-chip"><div class="logo-box"><img src="public/excel.png" alt="Excel" title="Excel"></div><span>Excel</span></div>
             <div class="tool-chip tool-chip--tableau"><div class="logo-box"><img src="public/tableau.png" alt="Tableau" title="Tableau"></div><span>Tableau</span></div>
             <div class="tool-chip tool-chip--looker"><div class="logo-box"><img src="public/looker.png" alt="Looker" title="Looker"></div><span>Looker</span></div>
+            <div class="tool-chip tool-chip--powerbi"><div class="logo-box"><img src="public/powerbi.png" alt="Power BI" title="Power BI"></div><span>Power BI</span></div>
             <div class="tool-chip"><div class="logo-box"><img src="public/sql.png" alt="MySQL" title="MySQL"></div><span>MySQL</span></div>
             <div class="tool-chip tool-chip--notion"><div class="logo-box"><img src="public/notion.png" alt="Notion" title="Notion"></div><span>Notion</span></div>
           </div>
@@ -1312,26 +1335,26 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Education</span>
-      <h2>Latar <span class="accent">Belakang</span> Akademik</h2>
+      <h2>Academic <span class="accent">Background</span></h2>
     </div>
     <div class="edu-card reveal">
       <div class="edu-badge">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>
       </div>
       <div class="edu-body">
-        <div class="campus">Fakultas Sains dan Teknologi</div>
-        <h3>Sistem Informasi   UIN Syarif Hidayatullah Jakarta</h3>
-        <span class="period">Semester 5 · Sejak 2024</span>
+        <div class="campus">Faculty of Science and Technology</div>
+        <h3>Information Systems — UIN Syarif Hidayatullah Jakarta</h3>
+        <span class="period">Semester 5 · Since 2024</span>
         <p>
-          Saat ini saya merupakan mahasiswa Sistem Informasi di Fakultas Sains dan Teknologi,
-          Universitas Islam Negeri (UIN) Syarif Hidayatullah Jakarta. Selama masa studi, saya
-          berfokus pada pembelajaran seputar pengembangan sistem, analisis data, dan manajemen
-          informasi untuk mendukung pengambilan keputusan berbasis data.
+          I am currently an Information Systems student at the Faculty of Science and Technology,
+          Universitas Islam Negeri (UIN) Syarif Hidayatullah Jakarta. Throughout my studies, I have
+          focused on learning system development, data analysis, and information management to
+          support data-driven decision-making.
         </p>
         <div class="edu-focus">
-          <span>Pengembangan Sistem</span>
-          <span>Analisis Data</span>
-          <span>Manajemen Informasi</span>
+          <span>System Development</span>
+          <span>Data Analysis</span>
+          <span>Information Management</span>
         </div>
       </div>
       <div class="edu-photo">
@@ -1350,7 +1373,7 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Work Experience</span>
-      <h2>Pengalaman <span class="accent">Kerja</span></h2>
+      <h2>Work <span class="accent">Experience</span></h2>
     </div>
 
     <div class="reveal">
@@ -1363,7 +1386,7 @@
           </div>
           <div>
             <h3>Leader of Data Specialist</h3>
-            <div class="org">Pusat Karier   UIN Syarif Hidayatullah Jakarta</div>
+            <div class="org">Career Center — UIN Syarif Hidayatullah Jakarta</div>
           </div>
         </div>
         <span class="exp-period">Nov 2025 – Jul 2026</span>
@@ -1374,45 +1397,45 @@
           <span class="num">01</span>
           <h4>Data Collection &amp; Stakeholder Coordination</h4>
           <ul>
-            <li>Bertanggung jawab atas pengelolaan data untuk 13 fakultas</li>
-            <li>Memimpin tim beranggotakan 10 staff dalam proses pengumpulan &amp; pengolahan data</li>
-            <li>Berdiskusi dengan stakeholder universitas (dekan, wakil dekan, wakil rektor)</li>
-            <li>Mengumpulkan data alumni melalui Google Form</li>
-            <li>Merancang campaign untuk meningkatkan response rate sesuai target</li>
-            <li>Menyesuaikan struktur data dengan indikator IKU Universitas</li>
+            <li>Responsible for managing data across 13 faculties</li>
+            <li>Led a team of 10 staff in the data collection &amp; processing process</li>
+            <li>Coordinated with university stakeholders (deans, vice deans, vice rectors)</li>
+            <li>Collected alumni data through Google Forms</li>
+            <li>Designed campaigns to increase response rates to meet targets</li>
+            <li>Aligned data structure with the University's Key Performance Indicators (IKU)</li>
           </ul>
         </div>
         <div class="exp-card">
           <span class="num">02</span>
           <h4>Data Automation &amp; Management</h4>
           <ul>
-            <li>Membersihkan data menggunakan kombinasi IF, ISERROR, dan MATCH</li>
-            <li>Membuat laporan real-time dengan filter dinamis via QUERY</li>
-            <li>Memvalidasi data melalui pencocokan referensi VLOOKUP &amp; MATCH</li>
-            <li>Menyinkronkan data antar spreadsheet dengan IMPORTRANGE</li>
-            <li>Merekap data kuantitatif secara cepat dengan COUNTIF</li>
-            <li>Mengotomatisasi alur kerja dengan action button berbasis HYPERLINK</li>
+            <li>Cleaned data using a combination of IF, ISERROR, and MATCH functions</li>
+            <li>Built real-time reports with dynamic filters using QUERY</li>
+            <li>Validated data through reference matching with VLOOKUP &amp; MATCH</li>
+            <li>Synchronized data across spreadsheets using IMPORTRANGE</li>
+            <li>Quickly summarized quantitative data using COUNTIF</li>
+            <li>Automated workflows with HYPERLINK-based action buttons</li>
           </ul>
         </div>
         <div class="exp-card">
           <span class="num">03</span>
           <h4>Reporting &amp; Visualization</h4>
           <ul>
-            <li>Menggabungkan data dari 13 fakultas menjadi satu kesatuan</li>
-            <li>Membangun visualisasi yang mudah dipahami sesuai insight yang dituju</li>
-            <li>Menyusun laporan akhir dalam dokumen lengkap dengan data &amp; insight</li>
-            <li>Membuat presentasi (PPT) untuk kebutuhan akreditasi kepada stakeholder</li>
+            <li>Consolidated data from 13 faculties into a single dataset</li>
+            <li>Built clear visualizations tailored to the intended insights</li>
+            <li>Compiled final reports into comprehensive documents with data &amp; insights</li>
+            <li>Created presentations (PPT) for accreditation purposes for stakeholders</li>
           </ul>
         </div>
       </div>
 
-      <!-- Dokumentasi   ganti isi .frame dengan <img src="foto1.jpg" alt="..."> -->
+      <!-- Documentation — replace .frame content with <img src="foto1.jpg" alt="..."> -->
       <div class="exp-gallery">
         <div class="photo-slot">
           <div class="frame">
-            <img src="public/dashboard.png" alt="Presentasi Dashboard">
+            <img src="public/dashboard.png" alt="Dashboard Presentation">
           </div>
-          <span class="cap">Presentasi Dashboard</span>
+          <span class="cap">Dashboard Presentation</span>
         </div>
         <div class="photo-slot">
           <div class="frame">
@@ -1439,17 +1462,16 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Organization</span>
-      <h2>Kiprah <span class="accent">Organisasi</span></h2>
+      <h2>Organizational <span class="accent">Involvement</span></h2>
     </div>
 
     <div class="org-intro reveal">
       <div class="role-big">HIMSI</div>
       <div class="org-text">
         <p>
-          Sebagai <strong>Kepala Bidang Pengembangan Sumber Daya Mahasiswa (PSDM)</strong> di HIMSI,
-          saya mengoordinasikan 2 divisi dengan total 7 program kerja, menerapkan Work Breakdown
-          Structure (WBS) dan Gantt chart untuk penjadwalan, serta menetapkan KPI sebagai acuan
-          keberhasilan tiap program.
+          As <strong>Head of Student Resource Development (PSDM)</strong> at HIMSI, I coordinate 2
+          divisions with a total of 7 work programs, apply Work Breakdown Structure (WBS) and Gantt
+          charts for scheduling, and set KPIs as success benchmarks for each program.
         </p>
       </div>
       <div class="org-photo">
@@ -1462,33 +1484,33 @@
     <div class="org-grid reveal">
       <div class="org-tag">
         <span class="pin"></span>
-        <div class="role">Kepala Bidang PSDM</div>
-        <div class="desc">Memimpin 40 staff, 5 divisi · menyusun KPI &amp; Gantt Chart · merancang sistem manajemen risiko</div>
+        <div class="role">Head of PSDM Division</div>
+        <div class="desc">Led 40 staff across 5 divisions · developed KPIs &amp; Gantt charts · designed a risk management system</div>
       </div>
       <div class="org-tag">
         <span class="pin"></span>
-        <div class="role">Project Lead   Milad HIMSI</div>
-        <div class="desc">Menjalankan acara untuk 180 peserta dengan sistem manajemen risiko yang terstruktur</div>
+        <div class="role">Project Lead — HIMSI Anniversary</div>
+        <div class="desc">Organized an event for 180 participants with a structured risk management system</div>
       </div>
       <div class="org-tag">
         <span class="pin"></span>
-        <div class="role">Head of Event Division   PBAK SI 2025</div>
-        <div class="desc">Membawahi 10 panitia, riset kebutuhan peserta, merancang &amp; menguji rangkaian acara untuk 180 mahasiswa baru</div>
+        <div class="role">Head of Event Division — PBAK SI 2025</div>
+        <div class="desc">Supervised 10 committee members, researched participant needs, and designed &amp; tested the event series for 180 new students</div>
       </div>
       <div class="org-tag">
         <span class="pin"></span>
-        <div class="role">Head of Event Division   HIMSI Esport Competition 1 &amp; 2</div>
-        <div class="desc">Merancang &amp; mengeksekusi rangkaian kompetisi esport tingkat organisasi</div>
+        <div class="role">Head of Event Division — HIMSI Esport Competition 1 &amp; 2</div>
+        <div class="desc">Designed &amp; executed the organization-level esports competition series</div>
       </div>
       <div class="org-tag">
         <span class="pin"></span>
-        <div class="role">Project Manager   HITLAB</div>
-        <div class="desc">Merancang Bootcamp Teknologi &amp; Career Development untuk ±80 peserta, quality control kegiatan</div>
+        <div class="role">Project Manager — HITLAB</div>
+        <div class="desc">Designed a Technology &amp; Career Development Bootcamp for ±80 participants, overseeing activity quality control</div>
       </div>
       <div class="org-tag">
         <span class="pin"></span>
-        <div class="role">Assistant Mentor &amp; Talent   Berita Sistem Informasi</div>
-        <div class="desc">Mendampingi program mentoring serta berkontribusi sebagai talent media HIMSI</div>
+        <div class="role">Assistant Mentor &amp; Talent — Berita Sistem Informasi</div>
+        <div class="desc">Assisted the mentoring program and contributed as a media talent for HIMSI</div>
       </div>
     </div>
   </div>
@@ -1501,15 +1523,15 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">What Can I Do</span>
-      <h2>Skill &amp; <span class="accent">Tools</span></h2>
-      <p>Kombinasi hard skill teknis dan soft skill kepemimpinan yang terbentuk dari pengalaman kerja dan organisasi.</p>
+      <h2>Skills &amp; <span class="accent">Tools</span></h2>
+      <p>A combination of technical hard skills and leadership soft skills shaped by work and organizational experience.</p>
     </div>
 
     <div class="skills-grid">
       <div class="skill-panel hard reveal">
         <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19h16M4 15l4-5 4 3 5-7"/></svg></span>Hard Skill</h3>
         <p style="margin-top:10px; font-size:13.5px; color:rgba(252,253,255,0.7);">
-          Data cleaning &amp; analysis, ETL workflow, query &amp; database management, hingga data visualization   dijalankan lewat tools berikut:
+          Data cleaning &amp; analysis, ETL workflow, query &amp; database management, and data visualization — carried out using the following tools:
         </p>
         <div class="tools-strip">
           <div class="tool-chip"><div class="logo-box"><img src="public/knime.png" alt="KNIME" title="KNIME"></div><span>KNIME</span></div>
@@ -1518,6 +1540,7 @@
           <div class="tool-chip"><div class="logo-box"><img src="public/excel.png" alt="Excel" title="Excel"></div><span>Excel</span></div>
           <div class="tool-chip"><div class="logo-box"><img src="public/tableau.png" alt="Tableau" title="Tableau"></div><span>Tableau</span></div>
           <div class="tool-chip"><div class="logo-box"><img src="public/looker.png" alt="Looker" title="Looker"></div><span>Looker</span></div>
+          <div class="tool-chip"><div class="logo-box"><img src="public/powerbi.png" alt="Power BI" title="Power BI"></div><span>Power BI</span></div>
           <div class="tool-chip"><div class="logo-box"><img src="public/sql.png" alt="MySQL" title="MySQL"></div><span>MySQL</span></div>
           <div class="tool-chip"><div class="logo-box"><img src="public/word.jpg" alt="Word" title="Word"></div><span>Word</span></div>
           <div class="tool-chip"><div class="logo-box"><img src="public/ppt.webp" alt="PPT" title="PPT"></div><span>PPT</span></div>
@@ -1548,12 +1571,12 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Certificates</span>
-      <h2>Sertifikat &amp; <span class="accent">Kredensial</span></h2>
-      <p>Kursus dan pelatihan yang sudah diselesaikan seputar data analytics.</p>
+      <h2>Certificates &amp; <span class="accent">Credentials</span></h2>
+      <p>Courses and training completed in the field of data analytics.</p>
     </div>
 
     <div class="cert-grid">
-      <!-- CERT 1   ganti isi .cert-thumb dengan <img src="cert-tableau.jpg" alt="..."> -->
+      <!-- CERT 1 — replace .cert-thumb content with <img src="cert-tableau.jpg" alt="..."> -->
       <div class="cert-card reveal">
         <div class="cert-thumb">
           <img src="https://img-certificate.ruangguru.com/USERJE8LJ4R8/CERT-BGZR59L2.jpg?orig=1" alt="Sertifikat Tableau Mastery" title="Sertifikat Tableau Mastery">
@@ -1562,9 +1585,9 @@
           <h4>Tableau Mastery: Creating Engaging Data Visualizations</h4>
           <div class="cert-issuer">Skill Academy by Ruangguru</div>
           <div class="cert-meta"><span><b>Issued</b> Nov 2025</span><span><b>ID</b> 5AYNV7AW1R7PSX</span></div>
-          <div class="cert-tags"><span>Tableau</span><span>Data Visualization</span><span>+2 skills</span></div>
+          <div class="cert-tags"><span>Tableau</span><span>Data Visualization</span><span>Dashboard Design</span><span>Charting &amp; Visual Analytics</span></div>
           <a class="cert-link" href="https://img-certificate.ruangguru.com/USERJE8LJ4R8/CERT-BGZR59L2.jpg?orig=1" target="_blank" rel="noopener">
-            Lihat Kredensial
+            View Credential
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M8 7h9v9"/></svg>
           </a>
         </div>
@@ -1579,9 +1602,9 @@
           <h4>Introduction to Data and Data Preparation</h4>
           <div class="cert-issuer">Skill Academy by Ruangguru</div>
           <div class="cert-meta"><span><b>Issued</b> Mar 2025</span><span><b>ID</b> M5U9FA7L0W7WV9</span></div>
-          <div class="cert-tags"><span>Data Analytics</span><span>Knime</span><span>+3 skills</span></div>
+          <div class="cert-tags"><span>Data Analytics</span><span>Knime</span><span>Data Cleaning</span><span>Data Preparation</span><span>Data Processing</span></div>
           <a class="cert-link" href="https://img-certificate.ruangguru.com/USERJE8LJ4R8/CERT-4P7UI9L2.jpg?orig=1" target="_blank" rel="noopener">
-            Lihat Kredensial
+            View Credential
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M8 7h9v9"/></svg>
           </a>
         </div>
@@ -1596,9 +1619,9 @@
           <h4>Basic Data Visualization</h4>
           <div class="cert-issuer">Skill Academy by Ruangguru</div>
           <div class="cert-meta"><span><b>Issued</b> Mar 2025</span><span><b>ID</b> SPXQXTLZ83IW32</span></div>
-          <div class="cert-tags"><span>Data Visualization</span><span>Exploratory Data Analysis (EDA)</span><span>+4 skills</span></div>
+          <div class="cert-tags"><span>Data Visualization</span><span>Exploratory Data Analysis (EDA)</span><span>Microsoft Excel (Data Visualization)</span><span>Google Sheets (Data Visualization)</span><span>Data Storytelling</span><span>Dashboarding</span></div>
           <a class="cert-link" href="https://kelas.work/certificate/issue/1316282/77" target="_blank" rel="noopener">
-            Lihat Kredensial
+            View Credential
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M8 7h9v9"/></svg>
           </a>
         </div>
@@ -1613,9 +1636,9 @@
           <h4>Expert in Data Management with Microsoft Excel</h4>
           <div class="cert-issuer">Skill Academy by Ruangguru</div>
           <div class="cert-meta"><span><b>Issued</b> Mar 2025</span><span><b>ID</b> RLQPTXAK8MS5</span></div>
-          <div class="cert-tags"><span>Microsoft Excel</span><span>Data Cleaning</span><span>+3 skills</span></div>
+          <div class="cert-tags"><span>Microsoft Excel</span><span>Data Cleaning</span><span>Data Validation</span><span>Data Processing</span><span>Data Analysis</span></div>
           <a class="cert-link" href="https://img-certificate.ruangguru.com/USERJE8LJ4R8/CERT-EIU8053F.jpg?orig=1" target="_blank" rel="noopener">
-            Lihat Kredensial
+            View Credential
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M8 7h9v9"/></svg>
           </a>
         </div>
@@ -1630,9 +1653,9 @@
           <h4>Introduction to Data Analytics</h4>
           <div class="cert-issuer">Kelas.work by Kelas.com</div>
           <div class="cert-meta"><span><b>Issued</b> Mar 2025</span><span><b>ID</b> CERT-BFC90867</span></div>
-          <div class="cert-tags"><span>SQL</span><span>Statistical Data Analysis</span><span>+2 skills</span></div>
+          <div class="cert-tags"><span>SQL</span><span>Statistical Data Analysis</span><span>Data Visualization</span><span>Data Analysis Fundamentals</span></div>
           <a class="cert-link" href="https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fkelas%2Ework%2Fcertificate%2Fissue%2F1316282%2F77&urlhash=uaaT&mt=MqS_tBhAKBADdArXIaq8Ef9Cvb-FeqG5LnJ-R1RWSApxDfc3oIDJsqsOj1pHAQj1YdgvWGh1OG1W9x6Xr3VPX1aYsLPl&isSdui=true" target="_blank" rel="noopener">
-            Lihat Kredensial
+            View Credential
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M8 7h9v9"/></svg>
           </a>
         </div>
@@ -1648,17 +1671,17 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Personal Project</span>
-      <h2>Proyek <span class="accent">Pribadi</span></h2>
-      <p>8 proyek personal yang sedang dalam pengembangan. Detail, tangkapan layar, dan tautan akan segera ditambahkan.</p>
+      <h2>Personal <span class="accent">Projects</span></h2>
+      <p>8 personal projects currently in development. Details, screenshots, and links will be added soon.</p>
     </div>
 
     <div class="proj-grid">
-      <!-- PROJECT 1   ganti judul, deskripsi, tag, dan link -->
+      <!-- PROJECT 1 — replace title, description, tags, and links -->
       <div class="proj-card reveal">
         <div class="proj-thumb"><span class="slot-no">01</span><span class="soon">Coming Soon</span></div>
         <div class="proj-body">
-          <h4>Nama Project 1</h4>
-          <p>Deskripsi singkat project akan ditambahkan di sini   tujuan, masalah yang diselesaikan, dan hasil yang dicapai.</p>
+          <h4>Project Name 1</h4>
+          <p>A short project description will be added here — the goal, problem solved, and results achieved.</p>
           <div class="proj-tags"><span>Tech Stack</span><span>Tag</span></div>
           <div class="proj-links">
             <a href="#" class="btn btn-primary" disabled>Live Demo</a>
@@ -1671,8 +1694,8 @@
       <div class="proj-card reveal">
         <div class="proj-thumb"><span class="slot-no">02</span><span class="soon">Coming Soon</span></div>
         <div class="proj-body">
-          <h4>Nama Project 2</h4>
-          <p>Deskripsi singkat project akan ditambahkan di sini   tujuan, masalah yang diselesaikan, dan hasil yang dicapai.</p>
+          <h4>Project Name 2</h4>
+          <p>A short project description will be added here — the goal, problem solved, and results achieved.</p>
           <div class="proj-tags"><span>Tech Stack</span><span>Tag</span></div>
           <div class="proj-links">
             <a href="#" class="btn btn-primary" disabled>Live Demo</a>
@@ -1685,8 +1708,8 @@
       <div class="proj-card reveal">
         <div class="proj-thumb"><span class="slot-no">03</span><span class="soon">Coming Soon</span></div>
         <div class="proj-body">
-          <h4>Nama Project 3</h4>
-          <p>Deskripsi singkat project akan ditambahkan di sini   tujuan, masalah yang diselesaikan, dan hasil yang dicapai.</p>
+          <h4>Project Name 3</h4>
+          <p>A short project description will be added here — the goal, problem solved, and results achieved.</p>
           <div class="proj-tags"><span>Tech Stack</span><span>Tag</span></div>
           <div class="proj-links">
             <a href="#" class="btn btn-primary" disabled>Live Demo</a>
@@ -1699,8 +1722,8 @@
       <div class="proj-card reveal">
         <div class="proj-thumb"><span class="slot-no">04</span><span class="soon">Coming Soon</span></div>
         <div class="proj-body">
-          <h4>Nama Project 4</h4>
-          <p>Deskripsi singkat project akan ditambahkan di sini   tujuan, masalah yang diselesaikan, dan hasil yang dicapai.</p>
+          <h4>Project Name 4</h4>
+          <p>A short project description will be added here — the goal, problem solved, and results achieved.</p>
           <div class="proj-tags"><span>Tech Stack</span><span>Tag</span></div>
           <div class="proj-links">
             <a href="#" class="btn btn-primary" disabled>Live Demo</a>
@@ -1713,8 +1736,8 @@
       <div class="proj-card reveal">
         <div class="proj-thumb"><span class="slot-no">05</span><span class="soon">Coming Soon</span></div>
         <div class="proj-body">
-          <h4>Nama Project 5</h4>
-          <p>Deskripsi singkat project akan ditambahkan di sini   tujuan, masalah yang diselesaikan, dan hasil yang dicapai.</p>
+          <h4>Project Name 5</h4>
+          <p>A short project description will be added here — the goal, problem solved, and results achieved.</p>
           <div class="proj-tags"><span>Tech Stack</span><span>Tag</span></div>
           <div class="proj-links">
             <a href="#" class="btn btn-primary" disabled>Live Demo</a>
@@ -1727,8 +1750,8 @@
       <div class="proj-card reveal">
         <div class="proj-thumb"><span class="slot-no">06</span><span class="soon">Coming Soon</span></div>
         <div class="proj-body">
-          <h4>Nama Project 6</h4>
-          <p>Deskripsi singkat project akan ditambahkan di sini   tujuan, masalah yang diselesaikan, dan hasil yang dicapai.</p>
+          <h4>Project Name 6</h4>
+          <p>A short project description will be added here — the goal, problem solved, and results achieved.</p>
           <div class="proj-tags"><span>Tech Stack</span><span>Tag</span></div>
           <div class="proj-links">
             <a href="#" class="btn btn-primary" disabled>Live Demo</a>
@@ -1741,8 +1764,8 @@
       <div class="proj-card reveal">
         <div class="proj-thumb"><span class="slot-no">07</span><span class="soon">Coming Soon</span></div>
         <div class="proj-body">
-          <h4>Nama Project 7</h4>
-          <p>Deskripsi singkat project akan ditambahkan di sini   tujuan, masalah yang diselesaikan, dan hasil yang dicapai.</p>
+          <h4>Project Name 7</h4>
+          <p>A short project description will be added here — the goal, problem solved, and results achieved.</p>
           <div class="proj-tags"><span>Tech Stack</span><span>Tag</span></div>
           <div class="proj-links">
             <a href="#" class="btn btn-primary" disabled>Live Demo</a>
@@ -1755,8 +1778,8 @@
       <div class="proj-card reveal">
         <div class="proj-thumb"><span class="slot-no">08</span><span class="soon">Coming Soon</span></div>
         <div class="proj-body">
-          <h4>Nama Project 8</h4>
-          <p>Deskripsi singkat project akan ditambahkan di sini   tujuan, masalah yang diselesaikan, dan hasil yang dicapai.</p>
+          <h4>Project Name 8</h4>
+          <p>A short project description will be added here — the goal, problem solved, and results achieved.</p>
           <div class="proj-tags"><span>Tech Stack</span><span>Tag</span></div>
           <div class="proj-links">
             <a href="#" class="btn btn-primary" disabled>Live Demo</a>
@@ -1776,8 +1799,8 @@
     <div class="contact-panel reveal">
       <div class="contact-left">
         <span class="eyebrow on-dark">Get In Touch</span>
-        <h2 style="margin-top:16px;">Mari <span style="color:var(--gold);">Terhubung</span> Soal Data</h2>
-        <p>Terbuka untuk peluang magang, kolaborasi project, maupun tanya jawab seputar data analytics.</p>
+        <h2 style="margin-top:16px;">Let's <span style="color:var(--gold);">Discuss</span> Data</h2>
+        <p>Open to internship opportunities, project collaborations, or just a chat about data analytics.</p>
         <div class="contact-methods">
           <a class="contact-method" href="mailto:alganiyukafaa@gmail.com">
             <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg></span>
@@ -1799,14 +1822,14 @@
       </div>
 
       <form class="contact-form" onsubmit="return false;">
-        <label class="lbl" for="cf-name">Nama</label>
-        <input id="cf-name" type="text" placeholder="Nama kamu">
+        <label class="lbl" for="cf-name">Name</label>
+        <input id="cf-name" type="text" placeholder="Your name">
         <label class="lbl" for="cf-email">Email</label>
-        <input id="cf-email" type="email" placeholder="email@kamu.com">
-        <label class="lbl" for="cf-msg">Pesan</label>
-        <textarea id="cf-msg" rows="4" placeholder="Tulis pesan kamu di sini..."></textarea>
+        <input id="cf-email" type="email" placeholder="your@email.com">
+        <label class="lbl" for="cf-msg">Message</label>
+        <textarea id="cf-msg" rows="4" placeholder="Write your message here..."></textarea>
         <button class="btn btn-gold" type="button" onclick="sendMail()">
-          Kirim Pesan
+          Send Message
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
         </button>
       </form>
@@ -1887,11 +1910,11 @@
 
   // Simple mailto handler for contact form
   function sendMail(){
-    const name = document.getElementById('cf-name').value || '(Tanpa nama)';
-    const email = document.getElementById('cf-email').value || '(Tanpa email)';
+    const name = document.getElementById('cf-name').value || '(No name)';
+    const email = document.getElementById('cf-email').value || '(No email)';
     const msg = document.getElementById('cf-msg').value || '';
-    const subject = encodeURIComponent('Pesan dari Portfolio   ' + name);
-    const body = encodeURIComponent('Nama: ' + name + '\nEmail: ' + email + '\n\nPesan:\n' + msg);
+    const subject = encodeURIComponent('Message from Portfolio — ' + name);
+    const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + msg);
     window.location.href = 'mailto:alganiyukafaa@gmail.com?subject=' + subject + '&body=' + body;
   }
 </script>
