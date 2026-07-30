@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kafa Al Ganiyu   Data Analyst Portfolio</title>
 <meta name="description" content="Personal portfolio of Kafa Al Ganiyu, Data Analyst & Information Systems student at UIN Syarif Hidayatullah Jakarta.">
+<meta name="theme-color" content="#0a1680">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230a1680'/%3E%3Ctext x='50' y='68' font-family='Arial,sans-serif' font-weight='800' font-size='56' fill='%23f1b94c' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
@@ -72,6 +74,13 @@
   @media (prefers-reduced-motion: reduce){
     *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
   }
+
+  /* scrollbar, tuned to the same palette */
+  ::-webkit-scrollbar{ width:11px; }
+  ::-webkit-scrollbar-track{ background:var(--white); }
+  ::-webkit-scrollbar-thumb{ background:var(--periwinkle); border-radius:999px; border:2.5px solid var(--white); }
+  ::-webkit-scrollbar-thumb:hover{ background:var(--navy); }
+  html{ scrollbar-color:var(--periwinkle) var(--white); }
 
   /* ============================================
      SHARED BITS   eyebrow, section heading, chips
@@ -178,6 +187,11 @@
     border-radius:999px;
     padding:10px 12px 10px 22px;
     box-shadow:var(--shadow-card);
+    transition:box-shadow .3s ease, background .3s ease;
+  }
+  .nav-outer.scrolled .nav{
+    background:rgba(252,253,255,0.96);
+    box-shadow:0 16px 34px -16px rgba(10,22,128,0.35);
   }
   .logo{
     font-family:var(--font-display);
@@ -430,6 +444,7 @@
   }
   .about-visual{
     position:relative;
+    width:100%;
     aspect-ratio:1/1.05;
     border-radius:var(--radius-lg);
     background:var(--white);
@@ -466,7 +481,9 @@
   .about-visual .chip{
     position:absolute;
     bottom:24px; left:24px; right:24px;
-    background:rgba(252,253,255,0.94);
+    background:rgba(252,253,255,0.55);
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
     color:var(--navy);
     border-radius:16px;
     padding:14px 16px;
@@ -770,7 +787,9 @@
     height:100%;
     object-fit:cover;
     display:block;
+    transition:transform .5s cubic-bezier(.2,.7,.2,1);
   }
+  .photo-slot:hover .frame img{ transform:scale(1.05); }
   .exp-gallery .photo-slot:first-child .frame img{
     object-fit:contain;
   }
@@ -964,7 +983,9 @@
     height:100%;
     object-fit:contain;
     display:block;
+    transition:transform .4s cubic-bezier(.2,.7,.2,1);
   }
+  .cert-card:hover .cert-thumb img{ transform:scale(1.035); }
   .cert-thumb svg{ width:30px; height:30px; stroke:var(--navy); opacity:.55; }
   .cert-thumb span{ font-size:11.5px; font-weight:700; }
   .cert-body{ padding:22px 24px; display:flex; flex-direction:column; gap:10px; flex:1; }
@@ -1001,6 +1022,13 @@
   .cert-link svg{ width:14px; height:14px; transition:transform .2s ease; }
   .cert-link:hover svg{ transform:translate(2px,-2px); }
 
+  @media(max-width:1024px){
+    .cert-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+  }
+  @media(max-width:760px){
+    .cert-grid{ grid-template-columns:1fr; }
+  }
+
   /* ============================================
      PROJECTS
      ============================================ */
@@ -1017,14 +1045,6 @@
     transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
     display:flex;
     flex-direction:column;
-  
-    @media(max-width:1024px){
-      .cert-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); }
-    }
-
-    @media(max-width:760px){
-      .cert-grid{ grid-template-columns:1fr; }
-    }
   }
   .proj-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-card); border-color:var(--navy); border-style:solid; }
   .proj-thumb{
@@ -1230,7 +1250,7 @@
         <span class="row dot-gold">DECISIONS</span>
       </h1>
       <p class="hero-sub">
-        Hi, I'm <strong>Kafa Al Ganiyu</strong>, an Information Systems student & Data Analyst
+        Hi, I'm <strong>Kafa Al Ganiyu</strong>   an Information Systems student & Data Analyst
         experienced in turning raw data into insights that support decision-making.
       </p>
       <div class="hero-actions">
@@ -1289,7 +1309,7 @@
     <div class="about-grid">
       <div class="about-visual reveal">
         <div class="ring"></div>
-        <img src="public/foto1.png" alt="Kafa Al Ganiyu" class="profile-photo">
+        <img src="public/foto1.png" alt="Kafa Al Ganiyu" class="profile-photo" loading="lazy">
         <div class="chip">
           Kafa Al Ganiyu <span>Data Analyst</span>
         </div>
@@ -1313,14 +1333,14 @@
         <div class="about-tools">
           <div class="lbl">Tools I Frequently Use</div>
           <div class="tool-row">
-            <div class="tool-chip"><div class="logo-box"><img src="public/knime.png" alt="KNIME" title="KNIME"></div><span>KNIME</span></div>
-            <div class="tool-chip"><div class="logo-box"><img src="public/sheets.png" alt="Google Sheets" title="Google Sheets"></div><span>Google Sheets</span></div>
-            <div class="tool-chip"><div class="logo-box"><img src="public/excel.png" alt="Excel" title="Excel"></div><span>Excel</span></div>
-            <div class="tool-chip tool-chip--tableau"><div class="logo-box"><img src="public/tableau.png" alt="Tableau" title="Tableau"></div><span>Tableau</span></div>
-            <div class="tool-chip tool-chip--looker"><div class="logo-box"><img src="public/looker.png" alt="Looker" title="Looker"></div><span>Looker</span></div>
-            <div class="tool-chip tool-chip--powerbi"><div class="logo-box"><img src="public/powerbi.png" alt="Power BI" title="Power BI"></div><span>Power BI</span></div>
-            <div class="tool-chip"><div class="logo-box"><img src="public/sql.png" alt="MySQL" title="MySQL"></div><span>MySQL</span></div>
-            <div class="tool-chip tool-chip--notion"><div class="logo-box"><img src="public/notion.png" alt="Notion" title="Notion"></div><span>Notion</span></div>
+            <div class="tool-chip"><div class="logo-box"><img src="public/knime.png" alt="KNIME" title="KNIME" loading="lazy"></div><span>KNIME</span></div>
+            <div class="tool-chip"><div class="logo-box"><img src="public/sheets.png" alt="Google Sheets" title="Google Sheets" loading="lazy"></div><span>Google Sheets</span></div>
+            <div class="tool-chip"><div class="logo-box"><img src="public/excel.png" alt="Excel" title="Excel" loading="lazy"></div><span>Excel</span></div>
+            <div class="tool-chip tool-chip--tableau"><div class="logo-box"><img src="public/tableau.png" alt="Tableau" title="Tableau" loading="lazy"></div><span>Tableau</span></div>
+            <div class="tool-chip tool-chip--looker"><div class="logo-box"><img src="public/looker.png" alt="Looker" title="Looker" loading="lazy"></div><span>Looker</span></div>
+            <div class="tool-chip tool-chip--powerbi"><div class="logo-box"><img src="public/powerbi.png" alt="Power BI" title="Power BI" loading="lazy"></div><span>Power BI</span></div>
+            <div class="tool-chip"><div class="logo-box"><img src="public/sql.png" alt="MySQL" title="MySQL" loading="lazy"></div><span>MySQL</span></div>
+            <div class="tool-chip tool-chip--notion"><div class="logo-box"><img src="public/notion.png" alt="Notion" title="Notion" loading="lazy"></div><span>Notion</span></div>
           </div>
         </div>
       </div>
@@ -1359,7 +1379,7 @@
       </div>
       <div class="edu-photo">
         <div class="logo-slot logo-slot--white">
-          <img src="public/uin.png" alt="Logo UIN" title="Logo UIN">
+          <img src="public/uin.png" alt="Logo UIN" title="Logo UIN" loading="lazy">
         </div>
       </div>
     </div>
@@ -1381,7 +1401,7 @@
         <div class="exp-header-left">
           <div class="exp-logo">
             <div class="logo-slot logo-slot--plain">
-              <img src="public/puskar.jpg" alt="Logo Pusat Karier" title="Logo Pusat Karier">
+              <img src="public/puskar.jpg" alt="Logo Pusat Karier" title="Logo Pusat Karier" loading="lazy">
             </div>
           </div>
           <div>
@@ -1393,7 +1413,7 @@
       </div>
 
       <div class="exp-cols">
-        <div class="exp-card">
+        <div class="exp-card reveal">
           <span class="num">01</span>
           <h4>Data Collection &amp; Stakeholder Coordination</h4>
           <ul>
@@ -1405,7 +1425,7 @@
             <li>Aligned data structure with the University's Key Performance Indicators (IKU)</li>
           </ul>
         </div>
-        <div class="exp-card">
+        <div class="exp-card reveal">
           <span class="num">02</span>
           <h4>Data Automation &amp; Management</h4>
           <ul>
@@ -1417,7 +1437,7 @@
             <li>Automated workflows with HYPERLINK-based action buttons</li>
           </ul>
         </div>
-        <div class="exp-card">
+        <div class="exp-card reveal">
           <span class="num">03</span>
           <h4>Reporting &amp; Visualization</h4>
           <ul>
@@ -1431,21 +1451,21 @@
 
       <!-- Documentation   replace .frame content with <img src="foto1.jpg" alt="..."> -->
       <div class="exp-gallery">
-        <div class="photo-slot">
+        <div class="photo-slot reveal">
           <div class="frame">
-            <img src="public/dashboard.png" alt="Dashboard Presentation">
+            <img src="public/dashboard.png" alt="Dashboard Presentation" loading="lazy">
           </div>
           <span class="cap">Dashboard Presentation</span>
         </div>
-        <div class="photo-slot">
+        <div class="photo-slot reveal">
           <div class="frame">
-            <img src="public/carprep.jpeg" alt="Career Preparation">
+            <img src="public/carprep.jpeg" alt="Career Preparation" loading="lazy">
           </div>
           <span class="cap">Career Preparation</span>
         </div>
-        <div class="photo-slot">
+        <div class="photo-slot reveal">
           <div class="frame">
-            <img src="public/dataspecialist.png" alt="Data Specialist">
+            <img src="public/dataspecialist.png" alt="Data Specialist" loading="lazy">
           </div>
           <span class="cap">Data Specialist
           </span>
@@ -1476,38 +1496,38 @@
       </div>
       <div class="org-photo">
         <div class="logo-slot logo-slot--white">
-          <img src="public/himsi.jpg" alt="Logo HIMSI" title="Logo HIMSI">
+          <img src="public/himsi.jpg" alt="Logo HIMSI" title="Logo HIMSI" loading="lazy">
         </div>
       </div>
     </div>
 
-    <div class="org-grid reveal">
-      <div class="org-tag">
+    <div class="org-grid">
+      <div class="org-tag reveal">
         <span class="pin"></span>
         <div class="role">Head of PSDM Division</div>
         <div class="desc">Led 40 staff across 5 divisions · developed KPIs &amp; Gantt charts · designed a risk management system</div>
       </div>
-      <div class="org-tag">
+      <div class="org-tag reveal">
         <span class="pin"></span>
         <div class="role">Project Lead   HIMSI Anniversary</div>
         <div class="desc">Organized an event for 180 participants with a structured risk management system</div>
       </div>
-      <div class="org-tag">
+      <div class="org-tag reveal">
         <span class="pin"></span>
         <div class="role">Head of Event Division   PBAK SI 2025</div>
         <div class="desc">Supervised 10 committee members, researched participant needs, and designed &amp; tested the event series for 180 new students</div>
       </div>
-      <div class="org-tag">
+      <div class="org-tag reveal">
         <span class="pin"></span>
         <div class="role">Head of Event Division   HIMSI Esport Competition 1 &amp; 2</div>
         <div class="desc">Designed &amp; executed the organization-level esports competition series</div>
       </div>
-      <div class="org-tag">
+      <div class="org-tag reveal">
         <span class="pin"></span>
         <div class="role">Project Manager   HITLAB</div>
         <div class="desc">Designed a Technology &amp; Career Development Bootcamp for ±80 participants, overseeing activity quality control</div>
       </div>
-      <div class="org-tag">
+      <div class="org-tag reveal">
         <span class="pin"></span>
         <div class="role">Assistant Mentor &amp; Talent   Berita Sistem Informasi</div>
         <div class="desc">Assisted the mentoring program and contributed as a media talent for HIMSI</div>
@@ -1534,18 +1554,18 @@
           Data cleaning &amp; analysis, ETL workflow, query &amp; database management, and data visualization   carried out using the following tools:
         </p>
         <div class="tools-strip">
-          <div class="tool-chip"><div class="logo-box"><img src="public/knime.png" alt="KNIME" title="KNIME"></div><span>KNIME</span></div>
-          <div class="tool-chip"><div class="logo-box"><img src="public/sheets.png" alt="Google Sheets" title="Google Sheets"></div><span>Google Sheets</span></div>
-          <div class="tool-chip"><div class="logo-box"><img src="public/notion.png" alt="Notion" title="Notion"></div><span>Notion</span></div>
-          <div class="tool-chip"><div class="logo-box"><img src="public/excel.png" alt="Excel" title="Excel"></div><span>Excel</span></div>
-          <div class="tool-chip"><div class="logo-box"><img src="public/tableau.png" alt="Tableau" title="Tableau"></div><span>Tableau</span></div>
-          <div class="tool-chip"><div class="logo-box"><img src="public/looker.png" alt="Looker" title="Looker"></div><span>Looker</span></div>
-          <div class="tool-chip"><div class="logo-box"><img src="public/powerbi.png" alt="Power BI" title="Power BI"></div><span>Power BI</span></div>
-          <div class="tool-chip"><div class="logo-box"><img src="public/sql.png" alt="MySQL" title="MySQL"></div><span>MySQL</span></div>
-          <div class="tool-chip"><div class="logo-box"><img src="public/word.jpg" alt="Word" title="Word"></div><span>Word</span></div>
-          <div class="tool-chip"><div class="logo-box"><img src="public/ppt.webp" alt="PPT" title="PPT"></div><span>PPT</span></div>
-          <div class="tool-chip"><div class="logo-box"><img src="public/canva.png" alt="Canva" title="Canva"></div><span>Canva</span></div>
-          <div class="tool-chip"><div class="logo-box"><img src="public/docs.webp" alt="Docs" title="Docs"></div><span>Docs</span></div>
+          <div class="tool-chip"><div class="logo-box"><img src="public/knime.png" alt="KNIME" title="KNIME" loading="lazy"></div><span>KNIME</span></div>
+          <div class="tool-chip"><div class="logo-box"><img src="public/sheets.png" alt="Google Sheets" title="Google Sheets" loading="lazy"></div><span>Google Sheets</span></div>
+          <div class="tool-chip"><div class="logo-box"><img src="public/notion.png" alt="Notion" title="Notion" loading="lazy"></div><span>Notion</span></div>
+          <div class="tool-chip"><div class="logo-box"><img src="public/excel.png" alt="Excel" title="Excel" loading="lazy"></div><span>Excel</span></div>
+          <div class="tool-chip"><div class="logo-box"><img src="public/tableau.png" alt="Tableau" title="Tableau" loading="lazy"></div><span>Tableau</span></div>
+          <div class="tool-chip"><div class="logo-box"><img src="public/looker.png" alt="Looker" title="Looker" loading="lazy"></div><span>Looker</span></div>
+          <div class="tool-chip"><div class="logo-box"><img src="public/powerbi.png" alt="Power BI" title="Power BI" loading="lazy"></div><span>Power BI</span></div>
+          <div class="tool-chip"><div class="logo-box"><img src="public/sql.png" alt="MySQL" title="MySQL" loading="lazy"></div><span>MySQL</span></div>
+          <div class="tool-chip"><div class="logo-box"><img src="public/word.jpg" alt="Word" title="Word" loading="lazy"></div><span>Word</span></div>
+          <div class="tool-chip"><div class="logo-box"><img src="public/ppt.webp" alt="PPT" title="PPT" loading="lazy"></div><span>PPT</span></div>
+          <div class="tool-chip"><div class="logo-box"><img src="public/canva.png" alt="Canva" title="Canva" loading="lazy"></div><span>Canva</span></div>
+          <div class="tool-chip"><div class="logo-box"><img src="public/docs.webp" alt="Docs" title="Docs" loading="lazy"></div><span>Docs</span></div>
         </div>
       </div>
 
@@ -1579,7 +1599,7 @@
       <!-- CERT 1   replace .cert-thumb content with <img src="cert-tableau.jpg" alt="..."> -->
       <div class="cert-card reveal">
         <div class="cert-thumb">
-          <img src="https://img-certificate.ruangguru.com/USERJE8LJ4R8/CERT-BGZR59L2.jpg?orig=1" alt="Sertifikat Tableau Mastery" title="Sertifikat Tableau Mastery">
+          <img src="https://img-certificate.ruangguru.com/USERJE8LJ4R8/CERT-BGZR59L2.jpg?orig=1" alt="Sertifikat Tableau Mastery" title="Sertifikat Tableau Mastery" loading="lazy">
         </div>
         <div class="cert-body">
           <h4>Tableau Mastery: Creating Engaging Data Visualizations</h4>
@@ -1596,7 +1616,7 @@
       <!-- CERT 2 -->
       <div class="cert-card reveal">
         <div class="cert-thumb">
-          <img src="https://img-certificate.ruangguru.com/USERJE8LJ4R8/CERT-4P7UI9L2.jpg?orig=1" alt="Sertifikat Introduction to Data and Data Preparation" title="Sertifikat Introduction to Data and Data Preparation">
+          <img src="https://img-certificate.ruangguru.com/USERJE8LJ4R8/CERT-4P7UI9L2.jpg?orig=1" alt="Sertifikat Introduction to Data and Data Preparation" title="Sertifikat Introduction to Data and Data Preparation" loading="lazy">
         </div>
         <div class="cert-body">
           <h4>Introduction to Data and Data Preparation</h4>
@@ -1613,7 +1633,7 @@
       <!-- CERT 3 -->
       <div class="cert-card reveal">
         <div class="cert-thumb">
-          <img src="https://img-certificate.ruangguru.com/USERJE8LJ4R8/CERT-P6USS29G.jpg?orig=1" alt="Sertifikat Basic Data Visualization" title="Sertifikat Basic Data Visualization">
+          <img src="https://img-certificate.ruangguru.com/USERJE8LJ4R8/CERT-P6USS29G.jpg?orig=1" alt="Sertifikat Basic Data Visualization" title="Sertifikat Basic Data Visualization" loading="lazy">
         </div>
         <div class="cert-body">
           <h4>Basic Data Visualization</h4>
@@ -1630,7 +1650,7 @@
       <!-- CERT 4 -->
       <div class="cert-card reveal">
         <div class="cert-thumb">
-          <img src="https://img-certificate.ruangguru.com/USERJE8LJ4R8/CERT-EIU8053F.jpg?orig=1" alt="Sertifikat Expert in Data Management with Microsoft Excel" title="Sertifikat Expert in Data Management with Microsoft Excel">
+          <img src="https://img-certificate.ruangguru.com/USERJE8LJ4R8/CERT-EIU8053F.jpg?orig=1" alt="Sertifikat Expert in Data Management with Microsoft Excel" title="Sertifikat Expert in Data Management with Microsoft Excel" loading="lazy">
         </div>
         <div class="cert-body">
           <h4>Expert in Data Management with Microsoft Excel</h4>
@@ -1647,7 +1667,7 @@
       <!-- CERT 5 -->
       <div class="cert-card reveal">
         <div class="cert-thumb">
-          <img src="public/Introduction%20to%20Data%20Analytics.png" alt="Sertifikat Introduction to Data Analytics" title="Sertifikat Introduction to Data Analytics">
+          <img src="public/Introduction%20to%20Data%20Analytics.png" alt="Sertifikat Introduction to Data Analytics" title="Sertifikat Introduction to Data Analytics" loading="lazy">
         </div>
         <div class="cert-body">
           <h4>Introduction to Data Analytics</h4>
@@ -1873,6 +1893,12 @@
     burger.classList.remove('open');
     mobileMenu.classList.remove('show');
   }));
+  document.addEventListener('click', (e) => {
+    if (mobileMenu.classList.contains('show') && !mobileMenu.contains(e.target) && !burger.contains(e.target)) {
+      burger.classList.remove('open');
+      mobileMenu.classList.remove('show');
+    }
+  });
 
   // Active nav link on scroll
   const sections = document.querySelectorAll('section[id], header[id]');
@@ -1890,7 +1916,13 @@
   window.addEventListener('scroll', setActive);
   setActive();
 
-  // Reveal on scroll
+  // Nav background/shadow strengthens after scrolling past the hero
+  const navOuter = document.querySelector('.nav-outer');
+  const setNavState = () => navOuter.classList.toggle('scrolled', window.scrollY > 40);
+  window.addEventListener('scroll', setNavState);
+  setNavState();
+
+  // Reveal on scroll (with a light stagger for grouped items)
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -1899,7 +1931,10 @@
       }
     });
   }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    el.style.transitionDelay = (i % 4) * 60 + 'ms';
+    io.observe(el);
+  });
 
   // Back to top button
   const totop = document.getElementById('totop');
