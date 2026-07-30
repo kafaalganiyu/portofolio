@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kafa Al Ganiyu   Data Analyst Portfolio</title>
+<title>Kafa Al Ganiyu  Data Analyst Portfolio</title>
 <meta name="description" content="Personal portfolio of Kafa Al Ganiyu, Data Analyst & Information Systems student at UIN Syarif Hidayatullah Jakarta.">
-<meta name="theme-color" content="#0a1680">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230a1680'/%3E%3Ctext x='50' y='68' font-family='Arial,sans-serif' font-weight='800' font-size='56' fill='%23f1b94c' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#541a1a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23541a1a'/%3E%3Ctext x='50' y='68' font-family='Arial,sans-serif' font-weight='800' font-size='56' fill='%23810b38' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
@@ -15,23 +15,23 @@
      DESIGN TOKENS
      ============================================ */
   :root{
-    --navy:        #0a1680;
-    --navy-ink:    #070f5c;
-    --periwinkle:  #93b2f8;
-    --cream:       #fbedb0;
-    --gold:        #f1b94c;
-    --white:       #fcfdff;
+    --navy:        #541a1a;
+    --navy-ink:    #3a1212;
+    --periwinkle:  #dcc3aa;
+    --cream:       #f1e2d1;
+    --gold:        #810b38;
+    --white:       #fffcf7;
 
-    --ink:         #0a1680;
-    --ink-soft:    #4a53a0;
-    --line:        rgba(10,22,128,0.12);
+    --ink:         #541a1a;
+    --ink-soft:    #7a4340;
+    --line:        rgba(84,26,26,0.12);
 
     --radius-lg:   32px;
     --radius-md:   20px;
     --radius-sm:   12px;
 
-    --shadow-soft: 0 20px 50px -20px rgba(10,22,128,0.25);
-    --shadow-card: 0 10px 30px -12px rgba(10,22,128,0.18);
+    --shadow-soft: 0 20px 50px -20px rgba(84,26,26,0.25);
+    --shadow-card: 0 10px 30px -12px rgba(84,26,26,0.18);
 
     --font-display: 'Anton', 'Barlow Condensed', sans-serif;
     --font-body: 'Barlow', sans-serif;
@@ -83,7 +83,20 @@
   html{ scrollbar-color:var(--periwinkle) var(--white); }
 
   /* ============================================
-     SHARED BITS   eyebrow, section heading, chips
+     SCROLL PROGRESS BAR
+     ============================================ */
+  .scroll-progress{
+    position:fixed;
+    top:0; left:0;
+    height:3px;
+    width:0%;
+    background:linear-gradient(90deg, var(--gold), var(--periwinkle));
+    z-index:300;
+    transition:width .08s linear;
+  }
+
+  /* ============================================
+     SHARED BITS  eyebrow, section heading, chips
      ============================================ */
   .eyebrow{
     display:inline-flex;
@@ -149,11 +162,11 @@
     white-space:nowrap;
   }
   .btn-primary{ background:var(--navy); color:var(--white); }
-  .btn-primary:hover{ transform:translateY(-3px); box-shadow:0 14px 30px -10px rgba(10,22,128,0.55); background:var(--navy-ink); }
+  .btn-primary:hover{ transform:translateY(-3px); box-shadow:0 14px 30px -10px rgba(84,26,26,0.55); background:var(--navy-ink); }
   .btn-ghost{ background:transparent; color:var(--navy); }
   .btn-ghost:hover{ transform:translateY(-3px); background:var(--navy); color:var(--white); }
-  .btn-gold{ background:var(--gold); border-color:var(--gold); color:var(--navy); }
-  .btn-gold:hover{ transform:translateY(-3px); box-shadow:0 14px 30px -10px rgba(241,185,76,0.7); }
+  .btn-gold{ background:var(--gold); border-color:var(--gold); color:var(--white); }
+  .btn-gold:hover{ transform:translateY(-3px); box-shadow:0 14px 30px -10px rgba(129,11,56,0.7); }
   .btn[disabled]{ opacity:.45; cursor:not-allowed; pointer-events:none; }
   .btn svg{ width:16px; height:16px; flex-shrink:0; }
 
@@ -180,7 +193,7 @@
     align-items:center;
     justify-content:space-between;
     gap:12px;
-    background:rgba(252,253,255,0.85);
+    background:rgba(255,252,247,0.85);
     backdrop-filter:blur(14px);
     -webkit-backdrop-filter:blur(14px);
     border:1.5px solid var(--line);
@@ -190,8 +203,8 @@
     transition:box-shadow .3s ease, background .3s ease;
   }
   .nav-outer.scrolled .nav{
-    background:rgba(252,253,255,0.96);
-    box-shadow:0 16px 34px -16px rgba(10,22,128,0.35);
+    background:rgba(255,252,247,0.96);
+    box-shadow:0 16px 34px -16px rgba(84,26,26,0.35);
   }
   .logo{
     font-family:var(--font-display);
@@ -204,11 +217,24 @@
   }
   .logo .dot{ color:var(--gold); }
   .nav-links{
+    position:relative;
     display:flex;
     align-items:center;
     gap:2px;
   }
+  .nav-indicator{
+    position:absolute;
+    top:4px; bottom:4px; left:0;
+    width:0;
+    border-radius:999px;
+    background:var(--navy);
+    z-index:0;
+    opacity:0;
+    transition:transform .4s cubic-bezier(.2,.8,.2,1), width .4s cubic-bezier(.2,.8,.2,1), opacity .3s ease;
+  }
   .nav-links a{
+    position:relative;
+    z-index:1;
     font-size:13px;
     font-weight:600;
     padding:9px 12px;
@@ -218,7 +244,7 @@
     white-space:nowrap;
   }
   .nav-links a:hover{ background:var(--periwinkle); color:var(--navy); }
-  .nav-links a.active{ background:var(--navy); color:var(--white); }
+  .nav-links a.active{ background:transparent; color:var(--white); }
   .nav-cta{ display:flex; align-items:center; gap:10px; }
   .nav-cta .btn{ padding:11px 20px; font-size:13.5px; }
   .burger{
@@ -280,18 +306,22 @@
     position:absolute;
     top:-160px; right:-160px;
     width:480px; height:480px;
-    background:radial-gradient(circle, var(--periwinkle) 0%, rgba(147,178,248,0) 70%);
+    background:radial-gradient(circle, var(--periwinkle) 0%, rgba(220,195,170,0) 70%);
     opacity:.6;
     pointer-events:none;
+    transform:translateY(calc(var(--parallax, 0) * 0.12px));
+    will-change:transform;
   }
   .hero::after{
     content:'';
     position:absolute;
     bottom:10%; left:-180px;
     width:360px; height:360px;
-    background:radial-gradient(circle, var(--cream) 0%, rgba(251,237,176,0) 70%);
+    background:radial-gradient(circle, var(--cream) 0%, rgba(241,226,209,0) 70%);
     opacity:.8;
     pointer-events:none;
+    transform:translateY(calc(var(--parallax, 0) * -0.08px));
+    will-change:transform;
   }
   .hero-top{
     position:relative; z-index:2;
@@ -352,10 +382,22 @@
     content:'';
     position:absolute; inset:0;
     background:
-      radial-gradient(520px 260px at 88% -10%, rgba(147,178,248,0.35), transparent 60%),
-      radial-gradient(420px 220px at 8% 115%, rgba(241,185,76,0.28), transparent 60%);
+      radial-gradient(520px 260px at 88% -10%, rgba(220,195,170,0.35), transparent 60%),
+      radial-gradient(420px 220px at 8% 115%, rgba(129,11,56,0.28), transparent 60%);
     pointer-events:none;
   }
+  .spotlight{ position:relative; }
+  .spotlight > *{ position:relative; z-index:1; }
+  .spotlight::after{
+    content:'';
+    position:absolute; inset:0;
+    background:radial-gradient(280px circle at var(--mx,50%) var(--my,50%), rgba(255,252,247,0.16), transparent 70%);
+    opacity:0;
+    transition:opacity .35s ease;
+    pointer-events:none;
+    border-radius:inherit;
+  }
+  .spotlight.spot-active::after{ opacity:1; }
   .hero-panel-grid{
     position:relative; z-index:1;
     display:grid;
@@ -371,7 +413,7 @@
   }
   .hero-panel p{
     margin-top:16px;
-    color:rgba(252,253,255,0.82);
+    color:rgba(255,252,247,0.82);
     font-size:15.5px;
     max-width:460px;
     text-align:justify;
@@ -386,14 +428,14 @@
   .hero-stat .ic{
     width:38px; height:38px;
     border-radius:50%;
-    background:rgba(252,253,255,0.12);
-    border:1.5px solid rgba(252,253,255,0.35);
+    background:rgba(255,252,247,0.12);
+    border:1.5px solid rgba(255,252,247,0.35);
     display:flex; align-items:center; justify-content:center;
     flex-shrink:0;
   }
-  .hero-stat .ic svg{ width:18px; height:18px; stroke:var(--gold); }
+  .hero-stat .ic svg{ width:18px; height:18px; stroke:var(--white); }
   .hero-stat b{ display:block; font-size:14px; font-weight:800; }
-  .hero-stat span{ display:block; font-size:11.5px; color:rgba(252,253,255,0.65); }
+  .hero-stat span{ display:block; font-size:11.5px; color:rgba(255,252,247,0.65); }
 
   .featured-card{
     background:var(--white);
@@ -458,7 +500,7 @@
   .about-visual .monogram{
     font-family:var(--font-display);
     font-size:clamp(90px,14vw,150px);
-    color:rgba(252,253,255,0.92);
+    color:rgba(255,252,247,0.92);
     text-transform:uppercase;
     letter-spacing:0.02em;
   }
@@ -481,7 +523,7 @@
   .about-visual .chip{
     position:absolute;
     bottom:24px; left:24px; right:24px;
-    background:rgba(252,253,255,0.55);
+    background:rgba(255,252,247,0.55);
     backdrop-filter:blur(6px);
     -webkit-backdrop-filter:blur(6px);
     color:var(--navy);
@@ -523,12 +565,12 @@
     width:58px; height:58px;
     border-radius:16px;
     background:var(--white);
-    box-shadow:0 10px 22px -12px rgba(10,22,128,0.35);
+    box-shadow:0 10px 22px -12px rgba(84,26,26,0.35);
     display:flex; align-items:center; justify-content:center;
     overflow:hidden;
     transition:transform .25s ease, box-shadow .25s ease;
   }
-  .tool-chip:hover .logo-box{ transform:translateY(-5px); box-shadow:0 14px 26px -12px rgba(10,22,128,0.45); }
+  .tool-chip:hover .logo-box{ transform:translateY(-5px); box-shadow:0 14px 26px -12px rgba(84,26,26,0.45); }
   .tool-chip .logo-box img{ width:60%; height:60%; object-fit:contain; }
   .tool-chip.tool-chip--tableau .logo-box img{ width:84%; height:84%; }
   .tool-chip.tool-chip--looker .logo-box img{ width:80%; height:80%; }
@@ -541,7 +583,7 @@
     letter-spacing:0.02em;
   }
   .tool-chip span{ font-size:11.5px; font-weight:700; color:var(--navy); line-height:1.2; }
-  .skill-panel.hard .tool-chip span{ color:rgba(252,253,255,0.85); }
+  .skill-panel.hard .tool-chip span{ color:rgba(255,252,247,0.85); }
   .skill-panel.hard .tool-chip .logo-box{ box-shadow:0 10px 24px -12px rgba(0,0,0,0.4); }
 
   @media(max-width:860px){
@@ -565,8 +607,8 @@
   .logo-slot{
     width:100%;
     aspect-ratio:1/1;
-    background:rgba(252,253,255,0.5);
-    border:1.5px dashed rgba(10,22,128,0.3);
+    background:rgba(255,252,247,0.5);
+    border:1.5px dashed rgba(84,26,26,0.3);
     border-radius:20px;
     display:flex; align-items:center; justify-content:center;
     padding:16px;
@@ -602,7 +644,7 @@
     display:flex; align-items:center; justify-content:center;
     flex-shrink:0;
   }
-  .edu-badge svg{ width:46px; height:46px; stroke:var(--gold); }
+  .edu-badge svg{ width:46px; height:46px; stroke:var(--white); }
   .edu-body .campus{
     font-weight:800;
     font-size:12px;
@@ -639,8 +681,8 @@
     display:flex; gap:10px; flex-wrap:wrap; margin-top:18px;
   }
   .edu-focus span{
-    background:rgba(252,253,255,0.55);
-    border:1px solid rgba(10,22,128,0.25);
+    background:rgba(255,252,247,0.55);
+    border:1px solid rgba(84,26,26,0.25);
     padding:6px 13px;
     border-radius:8px;
     font-size:12.5px;
@@ -675,10 +717,10 @@
   }
   .exp-logo{ width:88px; flex-shrink:0; }
   .exp-logo .logo-slot{
-    background:rgba(252,253,255,0.08);
-    border:1.5px dashed rgba(252,253,255,0.35);
+    background:rgba(255,252,247,0.08);
+    border:1.5px dashed rgba(255,252,247,0.35);
   }
-  .exp-logo .logo-slot .ph-text{ color:rgba(252,253,255,0.65); }
+  .exp-logo .logo-slot .ph-text{ color:rgba(255,252,247,0.65); }
   .exp-header h3{
     font-size:clamp(22px,2.6vw,30px);
     text-transform:uppercase;
@@ -766,11 +808,11 @@
   }
   .photo-slot:nth-child(2){ --r:1.1deg; }
   .photo-slot:nth-child(3){ --r:-0.9deg; }
-  .photo-slot:hover{ transform:rotate(0deg) translateY(-6px); box-shadow:0 22px 40px -18px rgba(10,22,128,0.35); }
+  .photo-slot:hover{ transform:rotate(0deg) translateY(-6px); box-shadow:0 22px 40px -18px rgba(84,26,26,0.35); }
   .photo-slot .frame{
     aspect-ratio:3/4;
     background:
-      repeating-linear-gradient(45deg, rgba(10,22,128,0.05) 0 10px, transparent 10px 20px),
+      repeating-linear-gradient(45deg, rgba(84,26,26,0.05) 0 10px, transparent 10px 20px),
       var(--cream);
     display:flex; align-items:center; justify-content:center;
     flex-direction:column;
@@ -906,8 +948,8 @@
     display:flex;align-items:center;justify-content:center;
     flex-shrink:0;
   }
-  .skill-panel.hard h3 .ic{ background:rgba(252,253,255,0.14); }
-  .skill-panel.hard h3 .ic svg{ stroke:var(--gold); width:18px;height:18px; }
+  .skill-panel.hard h3 .ic{ background:rgba(255,252,247,0.14); }
+  .skill-panel.hard h3 .ic svg{ stroke:var(--white); width:18px;height:18px; }
   .skill-panel.soft h3 .ic{ background:var(--cream); }
   .skill-panel.soft h3 .ic svg{ stroke:var(--navy); width:18px;height:18px; }
 
@@ -917,7 +959,7 @@
   .skill-row{
     display:flex; align-items:baseline; gap:12px;
     padding:13px 2px;
-    border-bottom:1px solid rgba(147,178,248,0.18);
+    border-bottom:1px solid rgba(220,195,170,0.18);
     font-weight:600;
     font-size:14.5px;
   }
@@ -1050,7 +1092,7 @@
   .proj-thumb{
     aspect-ratio:16/9;
     background:
-      repeating-linear-gradient(135deg, rgba(10,22,128,0.05) 0 12px, transparent 12px 24px),
+      repeating-linear-gradient(135deg, rgba(84,26,26,0.05) 0 12px, transparent 12px 24px),
       linear-gradient(135deg, var(--cream), var(--periwinkle));
     display:flex; align-items:center; justify-content:center;
     position:relative;
@@ -1058,7 +1100,7 @@
   .proj-thumb .slot-no{
     font-family:var(--font-display);
     font-size:54px;
-    color:rgba(10,22,128,0.28);
+    color:rgba(84,26,26,0.28);
   }
   .proj-thumb .soon{
     position:absolute; top:14px; right:14px;
@@ -1109,7 +1151,7 @@
   .contact-panel::before{
     content:'';
     position:absolute; inset:0;
-    background:radial-gradient(480px 260px at 100% 0%, rgba(147,178,248,0.32), transparent 65%);
+    background:radial-gradient(480px 260px at 100% 0%, rgba(220,195,170,0.32), transparent 65%);
     pointer-events:none;
   }
   .contact-left{ position:relative; z-index:1; }
@@ -1118,25 +1160,25 @@
     text-transform:uppercase;
     line-height:1.05;
   }
-  .contact-left p{ margin-top:16px; color:rgba(252,253,255,0.78); max-width:400px; font-size:15px; text-align:justify; }
+  .contact-left p{ margin-top:16px; color:rgba(255,252,247,0.78); max-width:400px; font-size:15px; text-align:justify; }
   .contact-methods{ margin-top:30px; display:flex; flex-direction:column; gap:14px; }
   .contact-method{
     display:flex; align-items:center; gap:14px;
-    background:rgba(252,253,255,0.06);
-    border:1px solid rgba(252,253,255,0.18);
+    background:rgba(255,252,247,0.06);
+    border:1px solid rgba(255,252,247,0.18);
     border-radius:16px;
     padding:14px 16px;
     transition:background .2s ease, transform .2s ease;
   }
-  .contact-method:hover{ background:rgba(252,253,255,0.14); transform:translateX(4px); }
+  .contact-method:hover{ background:rgba(255,252,247,0.14); transform:translateX(4px); }
   .contact-method .ic{
     width:38px; height:38px; border-radius:50%;
     background:var(--gold);
     display:flex; align-items:center; justify-content:center;
     flex-shrink:0;
   }
-  .contact-method .ic svg{ width:17px;height:17px; stroke:var(--navy); }
-  .contact-method b{ display:block; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(252,253,255,0.6); }
+  .contact-method .ic svg{ width:17px;height:17px; stroke:var(--white); }
+  .contact-method b{ display:block; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,252,247,0.6); }
   .contact-method span{ display:block; font-size:14.5px; font-weight:700; margin-top:2px; }
 
   .contact-form{ position:relative; z-index:1; background:var(--white); border-radius:22px; padding:28px; color:var(--navy); }
@@ -1201,6 +1243,8 @@
 </style>
 </head>
 <body>
+<div class="scroll-progress" id="scrollProgress"></div>
+
 
 <!-- ============================================
      NAV
@@ -1209,6 +1253,7 @@
   <nav class="nav">
     <a href="#home" class="logo">KAFA<span class="dot">.</span></a>
     <div class="nav-links" id="navLinks">
+      <span class="nav-indicator" id="navIndicator"></span>
       <a href="#about">About</a>
       <a href="#education">Education</a>
       <a href="#experience">Experience</a>
@@ -1250,7 +1295,7 @@
         <span class="row dot-gold">DECISIONS</span>
       </h1>
       <p class="hero-sub">
-        Hi, I'm <strong>Kafa Al Ganiyu</strong>   an Information Systems student & Data Analyst
+        Hi, I'm <strong>Kafa Al Ganiyu</strong>  an Information Systems student & Data Analyst
         experienced in turning raw data into insights that support decision-making.
       </p>
       <div class="hero-actions">
@@ -1262,28 +1307,28 @@
       </div>
     </div>
 
-    <div class="hero-panel reveal">
+    <div class="hero-panel spotlight reveal">
       <div class="hero-panel-grid">
         <div>
           <span class="eyebrow on-dark">Kafa Al Ganiyu</span>
           <h3 style="margin-top:12px;">Where Data Meets Decisions</h3>
           <p>
-            Experienced in managing institutional data across 13 faculties   from collection, cleaning,
-            and validation to visualization   using tools such as KNIME, Google Sheets, Excel, Tableau,
+            Experienced in managing institutional data across 13 faculties  from collection, cleaning,
+            and validation to visualization  using tools such as KNIME, Google Sheets, Excel, Tableau,
             Looker, Power BI, and MySQL.
           </p>
           <div class="hero-stats">
             <div class="hero-stat">
               <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></span>
-              <div><b>13 Faculties</b><span>Data managed</span></div>
+              <div><b><span class="count" data-count-to="13">0</span> Faculties</b><span>Data managed</span></div>
             </div>
             <div class="hero-stat">
               <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg></span>
-              <div><b>10 Staff</b><span>Led</span></div>
+              <div><b><span class="count" data-count-to="10">0</span> Staff</b><span>Led</span></div>
             </div>
             <div class="hero-stat">
               <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.5 6.5L21 9l-5 4.5L17.5 21 12 17l-5.5 4L8 13.5 3 9l6.5-.5z"/></svg></span>
-              <div><b>5+ Tools</b><span>Mastered</span></div>
+              <div><b><span class="count" data-count-to="5">0</span>+ Tools</b><span>Mastered</span></div>
             </div>
           </div>
         </div>
@@ -1292,7 +1337,7 @@
           <div class="featured-card">
             <div class="fc-label">Latest Experience</div>
             <h4>Leader of Data Specialist</h4>
-            <div class="fc-org">Career Center   UIN Syarif Hidayatullah Jakarta</div>
+            <div class="fc-org">Career Center  UIN Syarif Hidayatullah Jakarta</div>
             <span class="fc-period">Nov 2025 – Jul 2026</span>
           </div>
         </div>
@@ -1363,7 +1408,7 @@
       </div>
       <div class="edu-body">
         <div class="campus">Faculty of Science and Technology</div>
-        <h3>Information Systems   UIN Syarif Hidayatullah Jakarta</h3>
+        <h3>Information Systems  UIN Syarif Hidayatullah Jakarta</h3>
         <span class="period">Semester 5 · Since 2024</span>
         <p>
           I am currently an Information Systems student at the Faculty of Science and Technology,
@@ -1397,7 +1442,7 @@
     </div>
 
     <div class="reveal">
-      <div class="exp-header">
+      <div class="exp-header spotlight">
         <div class="exp-header-left">
           <div class="exp-logo">
             <div class="logo-slot logo-slot--plain">
@@ -1406,7 +1451,7 @@
           </div>
           <div>
             <h3>Leader of Data Specialist</h3>
-            <div class="org">Career Center   UIN Syarif Hidayatullah Jakarta</div>
+            <div class="org">Career Center  UIN Syarif Hidayatullah Jakarta</div>
           </div>
         </div>
         <span class="exp-period">Nov 2025 – Jul 2026</span>
@@ -1449,7 +1494,7 @@
         </div>
       </div>
 
-      <!-- Documentation   replace .frame content with <img src="foto1.jpg" alt="..."> -->
+      <!-- Documentation  replace .frame content with <img src="foto1.jpg" alt="..."> -->
       <div class="exp-gallery">
         <div class="photo-slot reveal">
           <div class="frame">
@@ -1509,27 +1554,27 @@
       </div>
       <div class="org-tag reveal">
         <span class="pin"></span>
-        <div class="role">Project Lead   HIMSI Anniversary</div>
+        <div class="role">Project Lead  HIMSI Anniversary</div>
         <div class="desc">Organized an event for 180 participants with a structured risk management system</div>
       </div>
       <div class="org-tag reveal">
         <span class="pin"></span>
-        <div class="role">Head of Event Division   PBAK SI 2025</div>
+        <div class="role">Head of Event Division  PBAK SI 2025</div>
         <div class="desc">Supervised 10 committee members, researched participant needs, and designed &amp; tested the event series for 180 new students</div>
       </div>
       <div class="org-tag reveal">
         <span class="pin"></span>
-        <div class="role">Head of Event Division   HIMSI Esport Competition 1 &amp; 2</div>
+        <div class="role">Head of Event Division  HIMSI Esport Competition 1 &amp; 2</div>
         <div class="desc">Designed &amp; executed the organization-level esports competition series</div>
       </div>
       <div class="org-tag reveal">
         <span class="pin"></span>
-        <div class="role">Project Manager   HITLAB</div>
+        <div class="role">Project Manager  HITLAB</div>
         <div class="desc">Designed a Technology &amp; Career Development Bootcamp for ±80 participants, overseeing activity quality control</div>
       </div>
       <div class="org-tag reveal">
         <span class="pin"></span>
-        <div class="role">Assistant Mentor &amp; Talent   Berita Sistem Informasi</div>
+        <div class="role">Assistant Mentor &amp; Talent  Berita Sistem Informasi</div>
         <div class="desc">Assisted the mentoring program and contributed as a media talent for HIMSI</div>
       </div>
     </div>
@@ -1548,10 +1593,10 @@
     </div>
 
     <div class="skills-grid">
-      <div class="skill-panel hard reveal">
+      <div class="skill-panel hard spotlight reveal">
         <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19h16M4 15l4-5 4 3 5-7"/></svg></span>Hard Skill</h3>
-        <p style="margin-top:10px; font-size:13.5px; color:rgba(252,253,255,0.7);">
-          Data cleaning &amp; analysis, ETL workflow, query &amp; database management, and data visualization   carried out using the following tools:
+        <p style="margin-top:10px; font-size:13.5px; color:rgba(255,252,247,0.7);">
+          Data cleaning &amp; analysis, ETL workflow, query &amp; database management, and data visualization  carried out using the following tools:
         </p>
         <div class="tools-strip">
           <div class="tool-chip"><div class="logo-box"><img src="public/knime.png" alt="KNIME" title="KNIME" loading="lazy"></div><span>KNIME</span></div>
@@ -1596,7 +1641,7 @@
     </div>
 
     <div class="cert-grid">
-      <!-- CERT 1   replace .cert-thumb content with <img src="cert-tableau.jpg" alt="..."> -->
+      <!-- CERT 1  replace .cert-thumb content with <img src="cert-tableau.jpg" alt="..."> -->
       <div class="cert-card reveal">
         <div class="cert-thumb">
           <img src="https://img-certificate.ruangguru.com/USERJE8LJ4R8/CERT-BGZR59L2.jpg?orig=1" alt="Sertifikat Tableau Mastery" title="Sertifikat Tableau Mastery" loading="lazy">
@@ -1696,12 +1741,12 @@
     </div>
 
     <div class="proj-grid">
-      <!-- PROJECT 1   replace title, description, tags, and links -->
+      <!-- PROJECT 1  replace title, description, tags, and links -->
       <div class="proj-card reveal">
         <div class="proj-thumb"><span class="slot-no">01</span><span class="soon">Coming Soon</span></div>
         <div class="proj-body">
           <h4>Project Name 1</h4>
-          <p>A short project description will be added here   the goal, problem solved, and results achieved.</p>
+          <p>A short project description will be added here  the goal, problem solved, and results achieved.</p>
           <div class="proj-tags"><span>Tech Stack</span><span>Tag</span></div>
           <div class="proj-links">
             <a href="#" class="btn btn-primary" disabled>Live Demo</a>
@@ -1715,7 +1760,7 @@
         <div class="proj-thumb"><span class="slot-no">02</span><span class="soon">Coming Soon</span></div>
         <div class="proj-body">
           <h4>Project Name 2</h4>
-          <p>A short project description will be added here   the goal, problem solved, and results achieved.</p>
+          <p>A short project description will be added here  the goal, problem solved, and results achieved.</p>
           <div class="proj-tags"><span>Tech Stack</span><span>Tag</span></div>
           <div class="proj-links">
             <a href="#" class="btn btn-primary" disabled>Live Demo</a>
@@ -1729,7 +1774,7 @@
         <div class="proj-thumb"><span class="slot-no">03</span><span class="soon">Coming Soon</span></div>
         <div class="proj-body">
           <h4>Project Name 3</h4>
-          <p>A short project description will be added here   the goal, problem solved, and results achieved.</p>
+          <p>A short project description will be added here  the goal, problem solved, and results achieved.</p>
           <div class="proj-tags"><span>Tech Stack</span><span>Tag</span></div>
           <div class="proj-links">
             <a href="#" class="btn btn-primary" disabled>Live Demo</a>
@@ -1743,7 +1788,7 @@
         <div class="proj-thumb"><span class="slot-no">04</span><span class="soon">Coming Soon</span></div>
         <div class="proj-body">
           <h4>Project Name 4</h4>
-          <p>A short project description will be added here   the goal, problem solved, and results achieved.</p>
+          <p>A short project description will be added here  the goal, problem solved, and results achieved.</p>
           <div class="proj-tags"><span>Tech Stack</span><span>Tag</span></div>
           <div class="proj-links">
             <a href="#" class="btn btn-primary" disabled>Live Demo</a>
@@ -1757,7 +1802,7 @@
         <div class="proj-thumb"><span class="slot-no">05</span><span class="soon">Coming Soon</span></div>
         <div class="proj-body">
           <h4>Project Name 5</h4>
-          <p>A short project description will be added here   the goal, problem solved, and results achieved.</p>
+          <p>A short project description will be added here  the goal, problem solved, and results achieved.</p>
           <div class="proj-tags"><span>Tech Stack</span><span>Tag</span></div>
           <div class="proj-links">
             <a href="#" class="btn btn-primary" disabled>Live Demo</a>
@@ -1771,7 +1816,7 @@
         <div class="proj-thumb"><span class="slot-no">06</span><span class="soon">Coming Soon</span></div>
         <div class="proj-body">
           <h4>Project Name 6</h4>
-          <p>A short project description will be added here   the goal, problem solved, and results achieved.</p>
+          <p>A short project description will be added here  the goal, problem solved, and results achieved.</p>
           <div class="proj-tags"><span>Tech Stack</span><span>Tag</span></div>
           <div class="proj-links">
             <a href="#" class="btn btn-primary" disabled>Live Demo</a>
@@ -1785,7 +1830,7 @@
         <div class="proj-thumb"><span class="slot-no">07</span><span class="soon">Coming Soon</span></div>
         <div class="proj-body">
           <h4>Project Name 7</h4>
-          <p>A short project description will be added here   the goal, problem solved, and results achieved.</p>
+          <p>A short project description will be added here  the goal, problem solved, and results achieved.</p>
           <div class="proj-tags"><span>Tech Stack</span><span>Tag</span></div>
           <div class="proj-links">
             <a href="#" class="btn btn-primary" disabled>Live Demo</a>
@@ -1799,7 +1844,7 @@
         <div class="proj-thumb"><span class="slot-no">08</span><span class="soon">Coming Soon</span></div>
         <div class="proj-body">
           <h4>Project Name 8</h4>
-          <p>A short project description will be added here   the goal, problem solved, and results achieved.</p>
+          <p>A short project description will be added here  the goal, problem solved, and results achieved.</p>
           <div class="proj-tags"><span>Tech Stack</span><span>Tag</span></div>
           <div class="proj-links">
             <a href="#" class="btn btn-primary" disabled>Live Demo</a>
@@ -1816,7 +1861,7 @@
      ============================================ -->
 <section class="section-pad" id="contact" style="background:var(--white);">
   <div class="wrap">
-    <div class="contact-panel reveal">
+    <div class="contact-panel spotlight reveal">
       <div class="contact-left">
         <span class="eyebrow on-dark">Get In Touch</span>
         <h2 style="margin-top:16px;">Let's <span style="color:var(--gold);">Discuss</span> Data</h2>
@@ -1900,9 +1945,25 @@
     }
   });
 
-  // Active nav link on scroll
+  // Shared capability flags
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isFinePointer = window.matchMedia('(pointer: fine)').matches;
+  const allowMotion = !prefersReducedMotion && isFinePointer;
+
+  // Active nav link on scroll + sliding pill indicator
   const sections = document.querySelectorAll('section[id], header[id]');
   const navAnchors = document.querySelectorAll('.nav-links a');
+  const navIndicator = document.getElementById('navIndicator');
+  const navLinksEl = document.getElementById('navLinks');
+  const moveNavIndicator = () => {
+    const activeLink = document.querySelector('.nav-links a.active');
+    if (!activeLink || !navIndicator || !navLinksEl) { if (navIndicator) navIndicator.style.opacity = 0; return; }
+    const linkBox = activeLink.getBoundingClientRect();
+    const parentBox = navLinksEl.getBoundingClientRect();
+    navIndicator.style.opacity = 1;
+    navIndicator.style.width = linkBox.width + 'px';
+    navIndicator.style.transform = 'translateX(' + (linkBox.left - parentBox.left) + 'px)';
+  };
   const setActive = () => {
     let current = '';
     sections.forEach(sec => {
@@ -1912,8 +1973,10 @@
     navAnchors.forEach(a => {
       a.classList.toggle('active', a.getAttribute('href') === '#' + current);
     });
+    moveNavIndicator();
   };
   window.addEventListener('scroll', setActive);
+  window.addEventListener('resize', moveNavIndicator);
   setActive();
 
   // Nav background/shadow strengthens after scrolling past the hero
@@ -1943,12 +2006,100 @@
   });
   totop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
+  // ============================================
+  // SCROLL PROGRESS BAR
+  // ============================================
+  const scrollProgress = document.getElementById('scrollProgress');
+  const updateScrollProgress = () => {
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    scrollProgress.style.width = (isFinite(scrolled) ? scrolled : 0) + '%';
+  };
+  window.addEventListener('scroll', updateScrollProgress);
+  updateScrollProgress();
+
+  // ============================================
+  // HERO PARALLAX (subtle, scroll-driven)
+  // ============================================
+  const heroEl = document.querySelector('.hero');
+  if (heroEl && !prefersReducedMotion) {
+    const updateParallax = () => heroEl.style.setProperty('--parallax', window.scrollY);
+    window.addEventListener('scroll', updateParallax, { passive: true });
+    updateParallax();
+  }
+
+  // ============================================
+  // ANIMATED STAT COUNTERS
+  // ============================================
+  const counters = document.querySelectorAll('.count[data-count-to]');
+  if (counters.length) {
+    const countIo = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseInt(el.getAttribute('data-count-to'), 10) || 0;
+        if (prefersReducedMotion) { el.textContent = target; countIo.unobserve(el); return; }
+        const duration = 1100;
+        const start = performance.now();
+        const tick = (now) => {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(eased * target);
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        countIo.unobserve(el);
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(el => countIo.observe(el));
+  }
+
+  // ============================================
+  // SUBTLE 3D TILT ON CARDS
+  // ============================================
+  if (allowMotion) {
+    const tiltEls = document.querySelectorAll('.exp-card, .cert-card, .org-tag, .proj-card');
+    tiltEls.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = 'translateY(-6px) perspective(700px) rotateX(' + (py * -6) + 'deg) rotateY(' + (px * 6) + 'deg)';
+      });
+      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+    });
+
+    // Magnetic pull for primary/gold action buttons
+    const magneticEls = document.querySelectorAll('.hero-actions .btn, .contact-form .btn-gold');
+    magneticEls.forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const r = btn.getBoundingClientRect();
+        const mx = (e.clientX - r.left - r.width / 2) * 0.28;
+        const my = (e.clientY - r.top - r.height / 2) * 0.35;
+        btn.style.transform = 'translate(' + mx + 'px,' + (my - 3) + 'px)';
+      });
+      btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+    });
+
+    // Cursor-follow spotlight glow on dark panels
+    const spotlightEls = document.querySelectorAll('.spotlight');
+    spotlightEls.forEach(panel => {
+      panel.addEventListener('mousemove', (e) => {
+        const r = panel.getBoundingClientRect();
+        panel.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+        panel.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+        panel.classList.add('spot-active');
+      });
+      panel.addEventListener('mouseleave', () => panel.classList.remove('spot-active'));
+    });
+  }
+
   // Simple mailto handler for contact form
   function sendMail(){
     const name = document.getElementById('cf-name').value || '(No name)';
     const email = document.getElementById('cf-email').value || '(No email)';
     const msg = document.getElementById('cf-msg').value || '';
-    const subject = encodeURIComponent('Message from Portfolio   ' + name);
+    const subject = encodeURIComponent('Message from Portfolio  ' + name);
     const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + msg);
     window.location.href = 'mailto:alganiyukafaa@gmail.com?subject=' + subject + '&body=' + body;
   }
