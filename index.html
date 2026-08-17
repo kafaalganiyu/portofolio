@@ -548,10 +548,11 @@ html { scrollbar-color: var(--periwinkle) var(--white); }
 .hero-top.hero-ready .hero-actions { opacity: 1; transform: translateY(0); transition-delay: 0.80s; }
 
 .hero-head {
-  font-size: clamp(32px, 7.4vw, 86px);
-  line-height: 0.98;
+  font-size: clamp(28px, 6.8vw, 82px);
+  line-height: 1.02;
   text-transform: uppercase;
   margin-top: 12px;
+  letter-spacing: 0.02em;
 }
 .hero-head .row.small {
   font-family: var(--font-body);
@@ -570,44 +571,57 @@ html { scrollbar-color: var(--periwinkle) var(--white); }
 .hero-head .dot-gold {
   color: var(--gold);
   -webkit-text-stroke: 2px var(--navy);
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
+  text-align: center;
+  margin-top: 4px;
 }
 
-/* Word Rotator */
+/* Word Rotator (No-Clip Responsive Architecture) */
 .word-rotator-wrap {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   position: relative;
   vertical-align: middle;
   text-align: center;
-  overflow: hidden;
-  height: 1.15em;
-  max-width: 100%;
-  padding: 0 10px;
+  overflow: visible !important;
+  min-height: 1.1em;
+  line-height: 1.1;
+  padding: 0 4px;
 }
 .word-rotator-wrap .rot-word {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   text-align: center;
   white-space: nowrap;
-  transition: transform 0.65s cubic-bezier(0.2, 0.9, 0.2, 1), opacity 0.65s ease;
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.word-rotator-wrap .rot-word.current { transform: translateY(0); opacity: 1; }
-.word-rotator-wrap .rot-word.out { transform: translateY(-110%); opacity: 0; }
-.word-rotator-wrap .rot-word.in-prep { transform: translateY(110%); opacity: 0; }
+.word-rotator-wrap .rot-word.current {
+  opacity: 1;
+  transform: translateY(0);
+}
+.word-rotator-wrap .rot-word.out {
+  opacity: 0;
+  transform: translateY(-8px);
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -8px);
+  pointer-events: none;
+}
+.word-rotator-wrap .rot-word.in-prep {
+  opacity: 0;
+  transform: translateY(8px);
+}
 
-@media (max-width: 640px) {
-  .hero-head { font-size: clamp(26px, 8.2vw, 44px) !important; line-height: 1.05; }
-  .word-rotator-wrap { padding: 0 6px; }
+@media (max-width: 600px) {
+  .hero-head {
+    font-size: clamp(21px, 6.8vw, 34px) !important;
+    line-height: 1.12;
+  }
+  .hero-head .outline,
+  .hero-head .dot-gold {
+    -webkit-text-stroke: 1.5px var(--navy);
+  }
 }
-@media (max-width: 380px) {
-  .hero-head { font-size: clamp(23px, 7.6vw, 34px) !important; }
+@media (max-width: 360px) {
+  .hero-head { font-size: 19px !important; }
 }
 
 .hero-sub {
@@ -2546,38 +2560,6 @@ footer {
   const words = ['DECISIONS', 'INSIGHTS', 'STRATEGY', 'GROWTH'];
   let currentWordIdx = 0;
   const rotatorWrap = document.getElementById('rotatorWrap');
-  const rotWord = document.getElementById('rotWord');
-
-  const adjustRotatorWidth = () => {
-    if (!rotatorWrap) return;
-    const testSpan = document.createElement('span');
-    testSpan.style.fontFamily = getComputedStyle(rotWord || rotatorWrap).fontFamily;
-    testSpan.style.fontSize = getComputedStyle(rotWord || rotatorWrap).fontSize;
-    testSpan.style.letterSpacing = getComputedStyle(rotWord || rotatorWrap).letterSpacing;
-    testSpan.style.textTransform = 'uppercase';
-    testSpan.style.webkitTextStroke = '2px #036172';
-    testSpan.style.visibility = 'hidden';
-    testSpan.style.position = 'absolute';
-    testSpan.style.whiteSpace = 'nowrap';
-    document.body.appendChild(testSpan);
-
-    let maxW = 0;
-    words.forEach(w => {
-      testSpan.textContent = w;
-      const wWidth = testSpan.getBoundingClientRect().width;
-      if (wWidth > maxW) maxW = wWidth;
-    });
-    document.body.removeChild(testSpan);
-    const safeMax = Math.ceil(maxW + 24);
-    rotatorWrap.style.width = safeMax + 'px';
-  };
-
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(adjustRotatorWidth);
-  } else {
-    window.addEventListener('load', adjustRotatorWidth);
-  }
-  window.addEventListener('resize', adjustRotatorWidth);
 
   if (!prefersReducedMotion && rotatorWrap) {
     setInterval(() => {
@@ -2595,12 +2577,14 @@ footer {
       if (currentEl) {
         currentEl.className = 'rot-word out';
         setTimeout(() => {
-          if (currentEl.parentNode) currentEl.parentNode.removeChild(currentEl);
-        }, 700);
+          if (currentEl && currentEl.parentNode) {
+            currentEl.parentNode.removeChild(currentEl);
+          }
+        }, 500);
       }
 
       newEl.className = 'rot-word current';
-    }, 2900);
+    }, 2800);
   }
 
   // ============================================
