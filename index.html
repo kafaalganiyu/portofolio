@@ -548,7 +548,7 @@ html { scrollbar-color: var(--periwinkle) var(--white); }
 .hero-top.hero-ready .hero-actions { opacity: 1; transform: translateY(0); transition-delay: 0.80s; }
 
 .hero-head {
-  font-size: clamp(34px, 7.8vw, 86px);
+  font-size: clamp(32px, 7.4vw, 86px);
   line-height: 0.98;
   text-transform: uppercase;
   margin-top: 12px;
@@ -577,18 +577,23 @@ html { scrollbar-color: var(--periwinkle) var(--white); }
 
 /* Word Rotator */
 .word-rotator-wrap {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   vertical-align: middle;
   text-align: center;
   overflow: hidden;
-  height: 1.05em;
+  height: 1.15em;
   max-width: 100%;
+  padding: 0 10px;
 }
 .word-rotator-wrap .rot-word {
   position: absolute;
-  top: 0; left: 0; right: 0;
-  width: 100%;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   white-space: nowrap;
   transition: transform 0.65s cubic-bezier(0.2, 0.9, 0.2, 1), opacity 0.65s ease;
@@ -596,6 +601,14 @@ html { scrollbar-color: var(--periwinkle) var(--white); }
 .word-rotator-wrap .rot-word.current { transform: translateY(0); opacity: 1; }
 .word-rotator-wrap .rot-word.out { transform: translateY(-110%); opacity: 0; }
 .word-rotator-wrap .rot-word.in-prep { transform: translateY(110%); opacity: 0; }
+
+@media (max-width: 640px) {
+  .hero-head { font-size: clamp(26px, 8.2vw, 44px) !important; line-height: 1.05; }
+  .word-rotator-wrap { padding: 0 6px; }
+}
+@media (max-width: 380px) {
+  .hero-head { font-size: clamp(23px, 7.6vw, 34px) !important; }
+}
 
 .hero-sub {
   margin: 18px auto 0;
@@ -1171,7 +1184,8 @@ html { scrollbar-color: var(--periwinkle) var(--white); }
 @media (max-width: 860px) {
   .exp-preview-box { padding: 24px 16px; }
   .exp-preview-cards { grid-template-columns: 1fr; }
-  .exp-preview-cta { flex-direction: column; align-items: flex-start; }
+  .exp-preview-cta { flex-direction: column; align-items: stretch; }
+  .exp-preview-cta .btn { width: 100%; justify-content: center; font-size: 13.5px; }
   .exp-mini-card p { text-align: left; }
 }
 
@@ -1287,7 +1301,8 @@ html { scrollbar-color: var(--periwinkle) var(--white); }
 @media (max-width: 860px) {
   .org-preview-box { padding: 24px 16px; }
   .org-preview-grid { grid-template-columns: 1fr; }
-  .org-preview-cta { flex-direction: column; align-items: flex-start; }
+  .org-preview-cta { flex-direction: column; align-items: stretch; }
+  .org-preview-cta .btn { width: 100%; justify-content: center; font-size: 13.5px; }
   .org-mini-card p { text-align: left; }
 }
 
@@ -1447,44 +1462,14 @@ html { scrollbar-color: var(--periwinkle) var(--white); }
 .cert-link:hover svg { transform: translate(3px, -3px); }
 
 /* ============================================
-   PROJECTS (WITH CATEGORY FILTER TABS)
+   PROJECTS
    ============================================ */
 #projects { background: var(--cream-veil); }
 
-.project-filters {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 28px;
-}
-.filter-btn {
-  background: var(--white);
-  border: 1.5px solid var(--line);
-  color: var(--navy);
-  padding: 8px 18px;
-  border-radius: 999px;
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 13px;
-  cursor: pointer;
-  transition: all .2s ease;
-}
-.filter-btn:hover {
-  background: var(--periwinkle);
-  border-color: var(--navy);
-}
-.filter-btn.active {
-  background: var(--navy);
-  color: var(--white);
-  border-color: var(--navy);
-  box-shadow: var(--shadow-card);
-}
-
 .proj-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
 }
 .proj-grid > div { min-width: 0; }
 .proj-card {
@@ -1494,10 +1479,75 @@ html { scrollbar-color: var(--periwinkle) var(--white); }
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform .25s ease, opacity .25s ease;
+  transition: transform .25s ease, box-shadow .25s ease;
 }
-.proj-card.hidden {
-  display: none !important;
+.proj-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+.proj-card--upcoming {
+  border: 1.5px dashed rgba(3, 97, 114, 0.35);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(245, 255, 251, 0.7));
+}
+.proj-thumb--teaser {
+  background: radial-gradient(circle at center, #024a58, #012b33);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.teaser-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px;
+}
+.teaser-icon-ring {
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  background: rgba(0, 224, 255, 0.12);
+  border: 1.5px dashed var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  animation: spinSlow 14s linear infinite;
+}
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.teaser-icon-ring svg { width: 22px; height: 22px; stroke: var(--gold); }
+.teaser-label {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 0.05em;
+  color: var(--white);
+  text-transform: uppercase;
+}
+.teaser-sub {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--periwinkle);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.badge-status.badge-upcoming {
+  background: var(--periwinkle);
+  color: var(--navy-deep);
+}
+.teaser-status-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--navy);
+  background: var(--cream);
+  border: 1px solid var(--line);
+  padding: 7px 14px;
+  border-radius: 999px;
 }
 .proj-thumb {
   aspect-ratio: 16/9;
@@ -2066,7 +2116,7 @@ footer {
           <p>Halaman terpisah khusus disediakan untuk melihat penjelasan mendalam dan dokumentasi visual lengkap.</p>
         </div>
         <a href="experience.html" class="btn btn-gold">
-          Lihat Detail Pengalaman Lengkap
+          Lihat Detail Pengalaman
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
@@ -2119,11 +2169,11 @@ footer {
 
       <div class="org-preview-cta">
         <div class="org-cta-text">
-          <h4>Ingin melihat rincian 7 program kerja &amp; galeri kegiatan HIMSI?</h4>
-          <p>Kunjungi halaman khusus untuk melihat dokumentasi foto rapat kerja, kepanitiaan, dan eksekusi acara.</p>
+          <h4>Ingin melihat rincian program kerja &amp; dokumentasi HIMSI?</h4>
+          <p>Kunjungi halaman khusus untuk melihat dokumentasi foto kegiatan, kepanitiaan, dan eksekusi program kerja.</p>
         </div>
         <a href="organization.html" class="btn btn-primary">
-          Lihat Detail Pengalaman Organisasi Lengkap
+          Lihat Detail Organisasi
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
@@ -2285,7 +2335,7 @@ footer {
 </section>
 
 <!-- ============================================
-     PROJECTS (WITH INTERACTIVE FILTER TABS)
+     PROJECTS
      ============================================ -->
 <section class="section-pad" id="projects">
   <div class="wrap">
@@ -2295,17 +2345,9 @@ footer {
       <p>Data analytics case studies and interactive dashboards developed to extract strategic insights from complex datasets.</p>
     </div>
 
-    <!-- Category Filter Tabs -->
-    <div class="project-filters reveal">
-      <button class="filter-btn active" data-filter="all">All Projects</button>
-      <button class="filter-btn" data-filter="bi">Power BI &amp; Dashboards</button>
-      <button class="filter-btn" data-filter="etl">ETL &amp; Data Pipeline</button>
-      <button class="filter-btn" data-filter="institutional">Institutional Analytics</button>
-    </div>
-
     <div class="proj-grid">
-      <!-- PROJECT 1: POWER BI SUPERSTORE DASHBOARD -->
-      <div class="proj-card glow-card reveal" data-category="bi">
+      <!-- PROJECT 1: POWER BI SUPERSTORE DASHBOARD (COMPLETED) -->
+      <div class="proj-card glow-card reveal">
         <div class="proj-thumb">
           <img src="project/project_1/project_1.jpg" alt="Superstore Sales & Profit Dashboard Power BI" loading="lazy">
           <span class="badge-status badge-completed">Completed</span>
@@ -2323,40 +2365,27 @@ footer {
         </div>
       </div>
 
-      <!-- PROJECT 2: SALES PIPELINE -->
-      <div class="proj-card glow-card reveal" data-category="etl">
-        <div class="proj-thumb">
-          <div style="text-align:center; padding:20px; color:var(--periwinkle);">
-            <div style="font-family:var(--font-display); font-size:30px; color:var(--gold);">2023-2025</div>
-            <div style="font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.7); margin-top:4px;">Sales Analytics Dataset</div>
+      <!-- UPCOMING PROJECT TEASER CARD -->
+      <div class="proj-card proj-card--upcoming glow-card reveal">
+        <div class="proj-thumb proj-thumb--teaser">
+          <div class="teaser-content">
+            <div class="teaser-icon-ring">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            </div>
+            <div class="teaser-label">In The Works</div>
+            <div class="teaser-sub">Next Analytical Case Study</div>
           </div>
-          <span class="badge-status">In Development</span>
+          <span class="badge-status badge-upcoming">Coming Soon</span>
         </div>
         <div class="proj-body">
-          <h4>Multi-Year E-Commerce Sales Pipeline</h4>
-          <p>Automated data pipeline consolidating and cleansing 24+ monthly raw transaction records (2023 to 2025) into a unified master analytical dataset.</p>
-          <div class="proj-tags"><span>KNIME ETL</span><span>Python / Pandas</span><span>Excel</span></div>
+          <h4>Next Personal Project Coming Very Soon</h4>
+          <p>Currently engineering new end-to-end data analytics projects, automated ETL pipelines, and interactive business intelligence dashboards. Stay tuned for upcoming case studies and repository releases!</p>
+          <div class="proj-tags"><span>ETL Pipeline</span><span>Python / Pandas</span><span>SQL / Data Warehouse</span><span>Dashboard BI</span></div>
           <div class="proj-links">
-            <a href="#" class="btn btn-ghost" disabled>Details Coming Soon</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- PROJECT 3: INSTITUTIONAL KPI -->
-      <div class="proj-card glow-card reveal" data-category="institutional">
-        <div class="proj-thumb">
-          <div style="text-align:center; padding:20px; color:var(--periwinkle);">
-            <div style="font-family:var(--font-display); font-size:30px; color:var(--gold);">IKU METRICS</div>
-            <div style="font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.7); margin-top:4px;">Institutional KPI</div>
-          </div>
-          <span class="badge-status">In Development</span>
-        </div>
-        <div class="proj-body">
-          <h4>Institutional KPI Automated Dashboard</h4>
-          <p>Real-time reporting system integrating survey queries and performance indicators across 13 faculty branches into automated visual scorecards.</p>
-          <div class="proj-tags"><span>Looker Studio</span><span>Google Sheets</span><span>MySQL</span></div>
-          <div class="proj-links">
-            <a href="#" class="btn btn-ghost" disabled>Details Coming Soon</a>
+            <span class="teaser-status-note">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              Work in progress : Stay tuned!
+            </span>
           </div>
         </div>
       </div>
@@ -2526,6 +2555,7 @@ footer {
     testSpan.style.fontSize = getComputedStyle(rotWord || rotatorWrap).fontSize;
     testSpan.style.letterSpacing = getComputedStyle(rotWord || rotatorWrap).letterSpacing;
     testSpan.style.textTransform = 'uppercase';
+    testSpan.style.webkitTextStroke = '2px #036172';
     testSpan.style.visibility = 'hidden';
     testSpan.style.position = 'absolute';
     testSpan.style.whiteSpace = 'nowrap';
@@ -2538,7 +2568,7 @@ footer {
       if (wWidth > maxW) maxW = wWidth;
     });
     document.body.removeChild(testSpan);
-    const safeMax = Math.min(Math.ceil(maxW + 6), window.innerWidth - 48);
+    const safeMax = Math.ceil(maxW + 24);
     rotatorWrap.style.width = safeMax + 'px';
   };
 
@@ -2800,29 +2830,6 @@ footer {
       panel.addEventListener('mouseleave', () => panel.classList.remove('spot-active'));
     });
   }
-
-  // ============================================
-  // PROJECT CATEGORY FILTERING LOGIC
-  // ============================================
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.proj-grid .proj-card');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const targetFilter = btn.getAttribute('data-filter');
-
-      projectCards.forEach(card => {
-        const cardCat = card.getAttribute('data-category');
-        if (targetFilter === 'all' || cardCat === targetFilter) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-    });
-  });
 
   // Contact Form Submission Handler
   function handleFormSubmit(e) {

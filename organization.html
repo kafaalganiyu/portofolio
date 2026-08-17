@@ -518,27 +518,15 @@ a:focus-visible, button:focus-visible {
   border-radius: 7px;
   z-index: 2;
 }
-.gallery-card-body {
-  padding: 18px 20px;
+.gallery-card-footer {
+  padding: 12px 16px;
+  background: var(--white);
+  border-top: 1px solid var(--line);
   display: flex;
-  flex-direction: column;
-  gap: 6px;
-  flex: 1;
-}
-.gallery-card-body h4 {
-  font-size: 17px;
-  text-transform: uppercase;
-  color: var(--navy);
-}
-.gallery-card-body p {
-  font-size: 13.5px;
-  color: var(--ink-soft);
-  text-align: justify;
-  line-height: 1.5;
+  align-items: center;
+  justify-content: center;
 }
 .gallery-zoom-prompt {
-  margin-top: auto;
-  padding-top: 8px;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -918,49 +906,43 @@ footer {
 
     <div class="gallery-grid">
       <!-- PHOTO 1: HIMSI 1 (1) -->
-      <div class="gallery-card glow-card reveal" onclick="openLightbox('public/himsi1 (1).jpeg', 'Dokumentasi Kepengurusan & Tim HIMSI', 'Foto bersama seluruh jajaran pengurus dan anggota Himpunan Mahasiswa Sistem Informasi (HIMSI) dalam rangkaian kegiatan pengembangan organisasi, evaluasi kerja, dan program kerja kemahasiswaan.')">
+      <div class="gallery-card glow-card reveal" onclick="openLightbox('public/himsi1 (1).jpeg', 'Dokumentasi HIMSI', '')">
         <div class="gallery-img-wrap">
           <span class="gallery-badge">Kepengurusan HIMSI</span>
           <img src="public/himsi1 (1).jpeg" alt="Dokumentasi Kepengurusan HIMSI" loading="lazy">
         </div>
-        <div class="gallery-card-body">
-          <h4>Dokumentasi Kepengurusan &amp; Tim HIMSI</h4>
-          <p>Foto bersama pengurus dan anggota HIMSI pada sesi konsolidasi organisasi, evaluasi kinerja departemen, dan penguatan kolaborasi tim.</p>
+        <div class="gallery-card-footer">
           <div class="gallery-zoom-prompt">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg>
-            Klik untuk perbesar gambar
+            Klik untuk melihat foto penuh
           </div>
         </div>
       </div>
 
       <!-- PHOTO 2: HIMSI 1 (2) -->
-      <div class="gallery-card glow-card reveal" onclick="openLightbox('public/himsi1 (2).jpeg', 'Aktivitas Acara & Program Kerja HIMSI', 'Dokumentasi pelaksanaan kegiatan program kerja divisi PSDM HIMSI bersama peserta dalam acara orientasi dan pengembangan potensi mahasiswa Sistem Informasi.')">
+      <div class="gallery-card glow-card reveal" onclick="openLightbox('public/himsi1 (2).jpg', 'Aktivitas Acara HIMSI', '')">
         <div class="gallery-img-wrap">
           <span class="gallery-badge">Pelaksanaan Acara</span>
-          <img src="public/himsi1 (2).jpeg" alt="Aktivitas Acara HIMSI" loading="lazy">
+          <img src="public/himsi1 (2).jpg" alt="Aktivitas Acara HIMSI" loading="lazy">
         </div>
-        <div class="gallery-card-body">
-          <h4>Aktivitas Acara &amp; Program Kerja HIMSI</h4>
-          <p>Dokumentasi kepanitiaan dan interaksi bersama peserta dalam pelaksanaan program kerja divisi PSDM dan kegiatan kemahasiswaan HIMSI.</p>
+        <div class="gallery-card-footer">
           <div class="gallery-zoom-prompt">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg>
-            Klik untuk perbesar gambar
+            Klik untuk melihat foto penuh
           </div>
         </div>
       </div>
 
       <!-- PHOTO 3: HIMSI LOGO -->
-      <div class="gallery-card glow-card reveal" onclick="openLightbox('public/himsi.jpg', 'Logo Resmi HIMSI UIN Jakarta', 'Himpunan Mahasiswa Sistem Informasi (HIMSI), Fakultas Sains dan Teknologi, UIN Syarif Hidayatullah Jakarta.')">
+      <div class="gallery-card glow-card reveal" onclick="openLightbox('public/himsi.jpg', 'Logo Resmi HIMSI UIN Jakarta', '')">
         <div class="gallery-img-wrap" style="padding: 22px; background: #fff;">
           <span class="gallery-badge">Identitas Organisasi</span>
           <img src="public/himsi.jpg" alt="Logo HIMSI UIN Jakarta" style="object-fit: contain;" loading="lazy">
         </div>
-        <div class="gallery-card-body">
-          <h4>Logo Resmi HIMSI UIN Jakarta</h4>
-          <p>Identitas resmi Himpunan Mahasiswa Sistem Informasi (HIMSI) UIN Syarif Hidayatullah Jakarta yang mewadahi aspirasi, akademik, dan kepemimpinan mahasiswa.</p>
+        <div class="gallery-card-footer">
           <div class="gallery-zoom-prompt">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg>
-            Klik untuk perbesar gambar
+            Klik untuk melihat logo penuh
           </div>
         </div>
       </div>
