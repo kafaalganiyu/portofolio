@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UIN Jakarta University Tracer Study Analytics &amp; Executive Report : Pusat Karier : Kafa Al Ganiyu</title>
+<meta name="description" content="University Tracer Study Analytics and Executive Report by Kafa Al Ganiyu, Leader of Data Specialist at Pusat Karier UIN Syarif Hidayatullah Jakarta. Institutional survey analytics evaluating 3,862 graduate respondents across 13 faculties.">
+<meta name="theme-color" content="#1E3F32">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%231E3F32'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-weight='700' font-size='56' fill='%23FDB827' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream-bg:        #FAF5EE;
+  --cream-surface:   #F3EDE2;
+  --cream-card:      #FFFFFF;
+  --forest-green:    #1E3F32;
+  --forest-deep:     #132B22;
+  --forest-surface:  #254E3E;
+  --forest-card:     #2B5847;
+  --marigold:        #FDB827;
+  --marigold-hover:  #E5A319;
+  --terracotta:      #D96B43;
+  --charcoal:        #141715;
+
+  --text-dark:       #1C2421;
+  --text-muted:      #5C6B64;
+  --text-light:      #FAF5EE;
+  --text-light-sub:  #D2E0D9;
+
+  --border-green:    rgba(30, 63, 50, 0.15);
+  --border-light:    rgba(250, 245, 238, 0.18);
+
+  --radius-pill:     999px;
+  --radius-xl:       24px;
+  --radius-lg:       18px;
+  --radius-md:       12px;
+
+  --shadow-soft:     0 18px 45px -15px rgba(30, 63, 50, 0.14);
+  --shadow-card:     0 10px 30px -10px rgba(30, 63, 50, 0.12);
+  --shadow-yellow:   0 12px 30px -8px rgba(253, 184, 39, 0.35);
+
+  --font-serif:      'Fraunces', 'DM Serif Display', Georgia, serif;
+  --font-sans:       'Plus Jakarta Sans', sans-serif;
+  --container:       1180px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow-wrap: break-word;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--cream-bg);
+  color: var(--text-dark);
+  font-family: var(--font-sans);
+  font-size: 15.5px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 700; }
+
+.wrap {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+::selection { background: var(--marigold); color: var(--forest-deep); }
+
+/* Scroll Progress */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3.5px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--marigold), var(--terracotta));
+  z-index: 400;
+  transition: width 0.08s linear;
+}
+
+/* Navbar */
+.nav-outer {
+  position: sticky;
+  top: 0;
+  z-index: 300;
+  background: rgba(250, 245, 238, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1.5px solid var(--border-green);
+  padding: 12px 0;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.nav-logo {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--forest-green);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-logo .star { color: var(--terracotta); }
+.nav-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+.nav-breadcrumbs a:hover { color: var(--forest-green); }
+.nav-breadcrumbs .sep { color: var(--terracotta); }
+.nav-breadcrumbs .current { color: var(--forest-green); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 13px;
+  padding: 9px 20px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform .22s ease, background .22s ease;
+}
+.btn-primary { background: var(--forest-green); color: var(--text-light); }
+.btn-primary:hover { transform: translateY(-2px); background: var(--forest-deep); }
+.btn-yellow { background: var(--marigold); color: var(--charcoal); font-weight: 800; }
+.btn-yellow:hover { transform: translateY(-2px); background: var(--marigold-hover); }
+.btn svg { width: 14px; height: 14px; }
+
+/* Hero */
+.proj-hero {
+  padding: 60px 0 30px;
+}
+.proj-hero-box {
+  background: var(--forest-green);
+  color: var(--cream-bg);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+.proj-badge {
+  display: inline-block;
+  background: var(--marigold);
+  color: var(--charcoal);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 14px;
+}
+.proj-hero-box h1 {
+  font-size: clamp(28px, 4.4vw, 46px);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+.proj-hero-box .subtitle {
+  color: var(--text-light-sub);
+  font-size: 16px;
+  max-width: 860px;
+  line-height: 1.6;
+}
+
+/* Showcase Visual */
+.showcase-card {
+  margin-top: 30px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--cream-card);
+  border: 1.5px solid var(--border-green);
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+}
+.showcase-img-wrap {
+  aspect-ratio: 16 / 9;
+  background: #0f1d18;
+  overflow: hidden;
+  position: relative;
+}
+.showcase-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .35s ease;
+}
+.showcase-card:hover .showcase-img-wrap img {
+  transform: scale(1.02);
+}
+.showcase-caption {
+  padding: 22px 28px;
+}
+.showcase-caption h3 {
+  font-size: 20px;
+  color: var(--forest-green);
+  margin-bottom: 6px;
+}
+.showcase-caption p {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* Metrics Strip */
+.metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+.metric-box {
+  background: var(--cream-surface);
+  border: 1.5px solid var(--border-green);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  text-align: center;
+}
+.metric-box .num {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  color: var(--forest-green);
+  font-weight: 700;
+}
+.metric-box .lbl {
+  font-size: 11.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-top: 4px;
+}
+
+/* Details Grid */
+.section-pad { padding: 60px 0 90px; }
+.details-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 36px;
+}
+.detail-card {
+  background: var(--cream-card);
+  border: 1.5px solid var(--border-green);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-card);
+}
+.detail-card h3 {
+  font-size: 22px;
+  color: var(--forest-green);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.detail-card h3 .star { color: var(--terracotta); }
+.detail-card p {
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 14px;
+  text-align: justify;
+}
+.detail-card p:last-child { margin-bottom: 0; }
+
+.insights-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 16px;
+}
+.insight-tile {
+  background: var(--cream-surface);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  border: 1px solid var(--border-green);
+}
+.insight-tile b {
+  display: block;
+  font-size: 14px;
+  color: var(--forest-green);
+  margin-bottom: 4px;
+}
+.insight-tile span {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Highlights Grid */
+.highlights-summary-box {
+  background: var(--forest-surface);
+  color: var(--cream-bg);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  margin: 18px 0;
+  border: 1px solid var(--border-light);
+}
+.highlights-summary-box h4 {
+  color: var(--marigold);
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.highlights-summary-box ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.highlights-summary-box li {
+  font-size: 13.5px;
+  color: var(--text-light-sub);
+  position: relative;
+  padding-left: 18px;
+  line-height: 1.5;
+}
+.highlights-summary-box li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--marigold);
+  font-size: 12px;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+.gallery-item {
+  background: var(--cream-surface);
+  border: 1.5px solid var(--border-green);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+.gallery-thumb {
+  aspect-ratio: 16 / 10;
+  background: #111;
+  overflow: hidden;
+}
+.gallery-thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .3s ease;
+}
+.gallery-item:hover .gallery-thumb img {
+  transform: scale(1.04);
+}
+.gallery-lbl {
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--forest-green);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Sidebar */
+.side-card {
+  background: var(--cream-card);
+  border: 1.5px solid var(--border-green);
+  border-radius: var(--radius-xl);
+  padding: 26px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-card);
+}
+.side-card h4 {
+  font-size: 18px;
+  color: var(--forest-green);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1.5px dashed var(--border-green);
+}
+.side-item {
+  margin-bottom: 14px;
+}
+.side-item .lbl {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--terracotta);
+}
+.side-item .val {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--forest-green);
+}
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.tag-list span {
+  font-size: 11.5px;
+  font-weight: 700;
+  background: var(--cream-surface);
+  color: var(--forest-green);
+  padding: 4px 11px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-green);
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(14, 31, 24, 0.92);
+  backdrop-filter: blur(8px);
+  z-index: 500;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.lightbox-modal.active { display: flex; }
+.lightbox-content {
+  background: var(--forest-surface);
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  max-width: 980px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: var(--shadow-soft);
+}
+.lightbox-close {
+  position: absolute;
+  top: 14px; right: 14px;
+  background: var(--forest-deep);
+  color: var(--cream-bg);
+  border: 1px solid var(--border-light);
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background .2s ease;
+}
+.lightbox-close:hover { background: var(--terracotta); }
+.lightbox-img-box {
+  width: 100%;
+  background: #0b1511;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox-img-box img {
+  width: 100%;
+  max-height: 65vh;
+  object-fit: contain;
+}
+.lightbox-details {
+  padding: 24px 28px;
+  color: var(--cream-bg);
+}
+.lightbox-details h3 {
+  font-size: 20px;
+  color: var(--marigold);
+  margin-bottom: 6px;
+}
+.lightbox-details p {
+  font-size: 14px;
+  color: var(--text-light-sub);
+  line-height: 1.6;
+}
+
+/* Bottom CTA & Footer */
+.bottom-cta {
+  background: var(--forest-surface);
+  color: var(--cream-bg);
+  padding: 70px 0;
+  text-align: center;
+}
+.bottom-cta h2 {
+  font-size: clamp(26px, 3.8vw, 38px);
+  margin-bottom: 10px;
+}
+.bottom-cta p {
+  color: var(--text-light-sub);
+  max-width: 600px;
+  margin: 0 auto 24px;
+  font-size: 15px;
+}
+
+footer {
+  background: var(--forest-deep);
+  color: var(--cream-bg);
+  padding: 30px 0;
+  border-top: 1.5px solid var(--border-light);
+}
+.foot-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.foot-links {
+  display: flex;
+  gap: 18px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-light-sub);
+}
+.foot-links a:hover { color: var(--marigold); }
+
+@media (max-width: 900px) {
+  .details-grid { grid-template-columns: 1fr; }
+  .insights-list { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<div class="nav-outer">
+  <div class="wrap">
+    <nav class="nav-inner">
+      <a href="index.html" class="nav-logo"><span class="star">✦</span> KAFA</a>
+      <div class="nav-breadcrumbs">
+        <a href="index.html">Home</a>
+        <span class="sep">/</span>
+        <a href="index.html#projects">Projects</a>
+        <span class="sep">/</span>
+        <span class="current">Project 03</span>
+      </div>
+      <a href="index.html#projects" class="btn btn-primary">← Back to Projects</a>
+    </nav>
+  </div>
+</div>
+
+<header class="proj-hero">
+  <div class="wrap">
+    <div class="proj-hero-box">
+      <span class="proj-badge">Institutional Analytics &amp; Executive Reporting : Project 03</span>
+      <h1>UIN Jakarta University Tracer Study Analytics &amp; Executive Report</h1>
+      <div class="subtitle">
+        University-Wide Institutional Research &amp; Analytics Pipeline: Evaluating 3,862 Graduate Survey Respondents Across 13 Faculties (Wisuda 135–138), Career Transition Timelines, Compensation Distributions, and Curriculum Competency Gap Analysis.
+      </div>
+    </div>
+
+    <div class="showcase-card" onclick="openLightbox('project/project_3/images/slide_01.png', 'Tracer Study UIN Jakarta 2025 Executive Report', 'Official executive report slide deck prepared by the Internship Data Specialist Season 10 team under the leadership of Kafa Al Ganiyu at the Career Center (Pusat Karier), UIN Syarif Hidayatullah Jakarta.')">
+      <div class="showcase-img-wrap">
+        <img src="project/project_3/images/slide_01.png" alt="Tracer Study UIN Jakarta Executive Report Title Slide">
+      </div>
+      <div class="showcase-caption">
+        <h3>Executive Presentation Deck &amp; Institutional Report Overview</h3>
+        <p>Official executive reporting presentation delivered to university leadership, vice rectors, and faculty deans. Click to expand full-resolution view.</p>
+      </div>
+    </div>
+
+    <div class="metrics-strip">
+      <div class="metric-box">
+        <div class="num">7,530</div>
+        <div class="lbl">Total Graduate Cohort</div>
+      </div>
+      <div class="metric-box">
+        <div class="num">3,862</div>
+        <div class="lbl">Verified Respondents</div>
+      </div>
+      <div class="metric-box">
+        <div class="num">13</div>
+        <div class="lbl">Faculties Analyzed</div>
+      </div>
+      <div class="metric-box">
+        <div class="num">94%</div>
+        <div class="lbl">Employed in &lt; 6 Mos</div>
+      </div>
+      <div class="metric-box">
+        <div class="num">1,304</div>
+        <div class="lbl">Private Sector Jobs</div>
+      </div>
+      <div class="metric-box">
+        <div class="num">10</div>
+        <div class="lbl">Competencies Evaluated</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section-pad">
+  <div class="wrap">
+    <div class="details-grid">
+      <div>
+        <!-- Block 1: Overview & Institutional Scope -->
+        <div class="detail-card">
+          <h3><span class="star">✦</span> Background &amp; Institutional Scope</h3>
+          <p>
+            The <strong>Tracer Study UIN Syarif Hidayatullah Jakarta</strong> is the flagship institutional research initiative conducted by the university's <strong>Career Center (Pusat Karier)</strong> to track the transition of university alumni from higher education into the professional labor market. As the <strong>Leader of Data Specialist</strong>, I led a specialized team of 10 data specialists responsible for end-to-end data acquisition, formula validation, quality control, demographic segmentation, and executive reporting across <strong>13 faculties</strong>.
+          </p>
+          <p>
+            Covering four consecutive graduation cohorts (Wisuda 135 through Wisuda 138) with a total population of <strong>7,530 graduates</strong>, our survey yielded <strong>3,862 verified respondents</strong>—achieving an exceptional <strong>51.25% response rate</strong>. The resulting findings serve as critical benchmarks for national accreditation (BAN-PT), curriculum development, international university rankings, and strategic policy formulation by the university rectorate.
+          </p>
+          
+          <div class="highlights-summary-box">
+            <h4>Key Project Parameters</h4>
+            <ul>
+              <li><strong>Target Population:</strong> 7,530 alumni from Graduation Cohorts 135, 136, 137, and 138.</li>
+              <li><strong>Verified Sample:</strong> 3,862 completed survey responses (51.25% statistical representation).</li>
+              <li><strong>Institutional Governance:</strong> Coordinating pipelines across 13 distinct academic faculties and postgraduate programs.</li>
+              <li><strong>Executive Audience:</strong> Delivered directly to the University Rector, Vice Rectors, Faculty Deans, and Study Program Directors.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Block 2: Key Analytic Findings & Career Outcomes -->
+        <div class="detail-card">
+          <h3><span class="star">✦</span> Key Analytical Findings &amp; Career Outcomes</h3>
+          <p>
+            Through rigorous statistical aggregation and multi-dimensional cross-tabulation, our analysis mapped the holistic post-graduation journeys of UIN Jakarta alumni across multiple primary indicators:
+          </p>
+
+          <div class="insights-list">
+            <div class="insight-tile">
+              <b>Alumni Transition Breakdown</b>
+              <span>52.5% of respondents are actively employed (1,916 alumni), 35.4% are actively seeking career opportunities, 7.4% are pursuing post-graduate Master's studies, and 4.5% are operating entrepreneurial ventures.</span>
+            </div>
+            <div class="insight-tile">
+              <b>Rapid Labor Absorption (94%)</b>
+              <span>94.0% of working graduates secured their roles within 6 months. Notably, <strong>52.7% secured employment prior to graduation</strong>, while 41.3% transitioned within 1 to 6 months.</span>
+            </div>
+            <div class="insight-tile">
+              <b>Sector Distribution</b>
+              <span>Private enterprises accounted for the largest employment share with 1,304 alumni (68.1%), followed by government and civil service agencies (301 alumni), non-profits, and state enterprises (BUMN).</span>
+            </div>
+            <div class="insight-tile">
+              <b>Global Geographic Footprint</b>
+              <span>While the majority are positioned across Jabodetabek and national centers, alumni demonstrated international mobility across the United Kingdom, Australia, Japan, Turkey, Malaysia, and Thailand.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Block 3: Competency Gap Analysis -->
+        <div class="detail-card">
+          <h3><span class="star">✦</span> Competency Gap Analysis (Evaluasi Kompetensi)</h3>
+          <p>
+            A cornerstone of the Tracer Study is assessing curriculum effectiveness by evaluating the <strong>gap between competencies mastered at graduation versus competencies demanded in the workplace</strong>. Alumni rated their proficiency across 10 vital domains on a standardized Likert scale:
+          </p>
+          <p>
+            The analysis revealed highest graduate mastery in <strong>Communication Skills (mean 4.66 / 5.00)</strong> and <strong>Self-Development &amp; Adaptability (mean 4.64 / 5.00)</strong>, followed closely by <strong>Teamwork (4.60)</strong> and <strong>Work Ethics (4.58)</strong>. Conversely, the largest competency gaps requiring curriculum reinforcement were identified in <strong>Foreign Language Fluency (English)</strong> and <strong>Specialized Information Technology &amp; Technical Tools</strong>.
+          </p>
+          <p>
+            These quantitative insights provided actionable empirical evidence for faculty deans to update course syllabi, embed industry certification requirements, and expand technical training modules.
+          </p>
+        </div>
+
+        <!-- Block 4: Data Governance & Cleansing Pipeline -->
+        <div class="detail-card">
+          <h3><span class="star">✦</span> Data Governance &amp; Cleansing Architecture</h3>
+          <p>
+            Collecting and validating information from thousands of respondents across heterogeneous faculty cohorts presented substantial data quality challenges:
+          </p>
+          <p>
+            <strong>1. Automated Spreadsheet Validation:</strong> Engineered centralized Google Sheets and Microsoft Excel systems utilizing <code>QUERY</code>, <code>IMPORTRANGE</code>, <code>VLOOKUP</code>, <code>INDEX/MATCH</code>, and automated data-type validation rules.
+          </p>
+          <p>
+            <strong>2. Sanitization of Free-Text Fields:</strong> Standardized messy textual responses—such as unformatted salary inputs, varied company naming conventions, and ambiguous job titles—into standardized analytical categories.
+          </p>
+          <p>
+            <strong>3. Deduplication &amp; Integrity Controls:</strong> Filtered duplicate student ID (NIM) submissions, resolved missing data through targeted follow-ups, and instituted conditional formatting verification protocols for our 10-person specialist team.
+          </p>
+        </div>
+
+        <!-- Block 5: Slide & Report Gallery -->
+        <div class="detail-card">
+          <h3><span class="star">✦</span> Executive Presentation &amp; Analytics Gallery</h3>
+          <p>Click on any slide from the executive report below to inspect the detailed visual charts, distribution graphs, and statistical tables:</p>
+          
+          <div class="gallery-grid">
+            <!-- Slide 05 -->
+            <div class="gallery-item" onclick="openLightbox('project/project_3/images/slide_05.png', 'General Profile of Respondents', 'Summary of 3,862 verified alumni respondents across graduation batches 135 through 138 with demographic breakdowns.')">
+              <div class="gallery-thumb"><img src="project/project_3/images/slide_05.png" alt="Profil Umum Responden"></div>
+              <div class="gallery-lbl"><span>Respondent Profile</span><span>↗</span></div>
+            </div>
+
+            <!-- Slide 06 -->
+            <div class="gallery-item" onclick="openLightbox('project/project_3/images/slide_06.png', 'Faculty Participation Rates', 'Comparative response rate analysis across 13 faculties at UIN Jakarta, led by FAH at 96.69%.')">
+              <div class="gallery-thumb"><img src="project/project_3/images/slide_06.png" alt="Tingkat Partisipasi Fakultas"></div>
+              <div class="gallery-lbl"><span>Faculty Participation</span><span>↗</span></div>
+            </div>
+
+            <!-- Slide 10 -->
+            <div class="gallery-item" onclick="openLightbox('project/project_3/images/slide_10.png', 'Post-Graduation Status Distribution', 'Overall career outcome breakdown: 52.5% employed, 35.4% seeking employment, 7.4% continuing studies, 4.5% entrepreneurs.')">
+              <div class="gallery-thumb"><img src="project/project_3/images/slide_10.png" alt="Status Alumni"></div>
+              <div class="gallery-lbl"><span>Alumni Status</span><span>↗</span></div>
+            </div>
+
+            <!-- Slide 13 -->
+            <div class="gallery-item" onclick="openLightbox('project/project_3/images/slide_13.png', 'Job Waiting Time Analysis', 'Distribution of time required to secure employment: 52.7% before graduation, 41.3% within 6 months.')">
+              <div class="gallery-thumb"><img src="project/project_3/images/slide_13.png" alt="Masa Tunggu Kerja"></div>
+              <div class="gallery-lbl"><span>Waiting Time</span><span>↗</span></div>
+            </div>
+
+            <!-- Slide 14 -->
+            <div class="gallery-item" onclick="openLightbox('project/project_3/images/slide_14.png', 'Employment Commencement & Company Types', 'Analysis of starting years and corporate segment distributions for employed graduates.')">
+              <div class="gallery-thumb"><img src="project/project_3/images/slide_14.png" alt="Waktu Memulai & Sektor Industri"></div>
+              <div class="gallery-lbl"><span>Corporate Types</span><span>↗</span></div>
+            </div>
+
+            <!-- Slide 15 -->
+            <div class="gallery-item" onclick="openLightbox('project/project_3/images/slide_15.png', 'Geographical Scope & Salary Tiers', 'Geographic scale of employment (local, national, multinational) alongside salary distribution brackets.')">
+              <div class="gallery-thumb"><img src="project/project_3/images/slide_15.png" alt="Skala & Penghasilan"></div>
+              <div class="gallery-lbl"><span>Salary &amp; Scope</span><span>↗</span></div>
+            </div>
+
+            <!-- Slide 16 -->
+            <div class="gallery-item" onclick="openLightbox('project/project_3/images/slide_16.png', 'Institutional Sector Breakdown', 'Classification of employer organizations: Private Corporations (1,304), Government Agencies (301), and Non-Profits.')">
+              <div class="gallery-thumb"><img src="project/project_3/images/slide_16.png" alt="Jenis Perusahaan"></div>
+              <div class="gallery-lbl"><span>Sector Breakdown</span><span>↗</span></div>
+            </div>
+
+            <!-- Slide 21 -->
+            <div class="gallery-item" onclick="openLightbox('project/project_3/images/slide_21.png', 'Entrepreneurship Insights', 'Characteristics of graduate business owners: 34.7% micro-enterprises and 30.7% small business enterprises.')">
+              <div class="gallery-thumb"><img src="project/project_3/images/slide_21.png" alt="Profil Wirausaha"></div>
+              <div class="gallery-lbl"><span>Entrepreneurship</span><span>↗</span></div>
+            </div>
+
+            <!-- Slide 25 -->
+            <div class="gallery-item" onclick="openLightbox('project/project_3/images/slide_25.png', 'Further Studies & Academic Progression', 'Analysis of alumni advancing to Master\'s and doctoral education domestically and internationally.')">
+              <div class="gallery-thumb"><img src="project/project_3/images/slide_25.png" alt="Lanjut Studi"></div>
+              <div class="gallery-lbl"><span>Post-Graduate</span><span>↗</span></div>
+            </div>
+
+            <!-- Slide 30 -->
+            <div class="gallery-item" onclick="openLightbox('project/project_3/images/slide_30.png', 'Job Seeking Dynamics & Barriers', 'Survey results examining job search timelines, application frequencies, and primary employment barriers.')">
+              <div class="gallery-thumb"><img src="project/project_3/images/slide_30.png" alt="Analisis Belum Bekerja"></div>
+              <div class="gallery-lbl"><span>Search Dynamics</span><span>↗</span></div>
+            </div>
+
+            <!-- Slide 35 -->
+            <div class="gallery-item" onclick="openLightbox('project/project_3/images/slide_35.png', 'Competency Assessment Matrix', 'Comparative analysis matrix mapping university-acquired competencies against industry requirements.')">
+              <div class="gallery-thumb"><img src="project/project_3/images/slide_35.png" alt="Evaluasi Kompetensi"></div>
+              <div class="gallery-lbl"><span>Competency Matrix</span><span>↗</span></div>
+            </div>
+
+            <!-- Slide 38 -->
+            <div class="gallery-item" onclick="openLightbox('project/project_3/images/slide_38.png', 'Competency Gap Assessment & Ranking', 'Ranked breakdown of core skills mastery led by Communication (4.66) and Personal Development (4.64).')">
+              <div class="gallery-thumb"><img src="project/project_3/images/slide_38.png" alt="Gap Analysis Kompetensi"></div>
+              <div class="gallery-lbl"><span>Gap Analysis</span><span>↗</span></div>
+            </div>
+
+            <!-- Slide 39 -->
+            <div class="gallery-item" onclick="openLightbox('project/project_3/images/slide_39.png', 'Executive Conclusions & Strategic Roadmap', 'Final institutional summary and recommended strategic interventions delivered to university leadership.')">
+              <div class="gallery-thumb"><img src="project/project_3/images/slide_39.png" alt="Kesimpulan & Rekomendasi"></div>
+              <div class="gallery-lbl"><span>Recommendations</span><span>↗</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div>
+        <div class="side-card">
+          <h4>Project Information</h4>
+          <div class="side-item">
+            <div class="lbl">Project Title</div>
+            <div class="val">UIN Jakarta Tracer Study Analytics</div>
+          </div>
+          <div class="side-item">
+            <div class="lbl">Role / Responsibility</div>
+            <div class="val">Leader of Data Specialist</div>
+          </div>
+          <div class="side-item">
+            <div class="lbl">Institution</div>
+            <div class="val">Pusat Karier (Career Center), UIN Syarif Hidayatullah Jakarta</div>
+          </div>
+          <div class="side-item">
+            <div class="lbl">Scope &amp; Coverage</div>
+            <div class="val">13 Faculties · Wisuda 135–138 (7,530 Graduates)</div>
+          </div>
+          <div class="side-item">
+            <div class="lbl">Verified Sample</div>
+            <div class="val">3,862 Validated Survey Responses</div>
+          </div>
+          <div class="side-item">
+            <div class="lbl">Platform / Tools</div>
+            <div class="val">Google Sheets, MS Excel, Power BI, Statistical Analytics, Executive Deck</div>
+          </div>
+          <div class="side-item">
+            <div class="lbl">Status</div>
+            <div class="val" style="color:var(--forest-green);">Delivered to University Leadership</div>
+          </div>
+          <div style="margin-top: 16px;">
+            <a href="project/project_3/PPT_UNIV.pdf" target="_blank" rel="noopener" class="btn btn-yellow" style="width:100%; font-size:12.5px;">
+              View Executive Presentation (PDF) ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="side-card">
+          <h4>Core Analytical Domains</h4>
+          <div class="tag-list">
+            <span>Survey Analytics</span>
+            <span>Institutional Research</span>
+            <span>Data Governance</span>
+            <span>Competency Gap Analysis</span>
+            <span>Spreadsheet Automation</span>
+            <span>Executive Reporting</span>
+            <span>Higher Education KPIs</span>
+            <span>Team Leadership</span>
+          </div>
+        </div>
+
+        <div class="side-card">
+          <h4>Related Experience</h4>
+          <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:12px;">
+            Discover more about my operational leadership, 10-person specialist team management, and daily workflows at Pusat Karier.
+          </p>
+          <a href="experience.html" class="btn btn-primary" style="width:100%; font-size:12.5px;">
+            View Work Experience Page →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox(event)">
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close image preview">✕</button>
+    <div class="lightbox-img-box">
+      <img id="lightboxImg" src="" alt="Report Preview">
+    </div>
+    <div class="lightbox-details">
+      <h3 id="lightboxTitle"></h3>
+      <p id="lightboxDesc"></p>
+    </div>
+  </div>
+</div>
+
+<section class="bottom-cta">
+  <div class="wrap">
+    <h2>Interested in Institutional Data &amp; Analytics?</h2>
+    <p>Let's discuss survey intelligence, automated validation pipelines, and high-impact executive decision reporting.</p>
+    <div style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap;">
+      <a href="index.html#projects" class="btn btn-yellow">Back to Projects</a>
+      <a href="index.html#contact" class="btn btn-primary" style="background:var(--forest-deep);">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <div class="nav-logo" style="color:var(--cream-bg);"><span class="star">✦</span> Kafa Al Ganiyu</div>
+      <div class="foot-links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#resume">Resume</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="experience.html">Experience</a>
+        <a href="organization.html">Organization</a>
+      </div>
+      <div style="font-size:12px; color:rgba(250,245,238,0.6);">© 2026 Kafa Al Ganiyu. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = (window.scrollY / docHeight) * 100;
+    const bar = document.getElementById('scrollProgress');
+    if (bar) bar.style.width = scrolled + '%';
+  });
+
+  function openLightbox(src, title, desc) {
+    const modal = document.getElementById('lightboxModal');
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightboxTitle').textContent = title;
+    document.getElementById('lightboxDesc').textContent = desc;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    const modal = document.getElementById('lightboxModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
+</body>
+</html>

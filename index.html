@@ -768,8 +768,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 .projects-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 36px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
 }
 .project-card {
   background: var(--cream-card);
@@ -1455,6 +1455,30 @@ footer {
             <span>Microsoft Power BI</span>
           </div>
           <a href="project-2.html" class="btn btn-yellow" style="align-self: flex-start;">
+            Explore Case Study →
+          </a>
+        </div>
+      </div>
+
+      <!-- PROJECT 3 -->
+      <div class="project-card reveal">
+        <div class="project-thumb-wrap">
+          <img src="project/project_3/project_3.jpg" alt="University Tracer Study Analytics & Executive Report" loading="lazy">
+          <span class="project-status-badge">Completed</span>
+        </div>
+        <div class="project-body">
+          <h3>UIN Jakarta University Tracer Study Analytics &amp; Executive Report</h3>
+          <p>
+            University-wide institutional research pipeline evaluating 3,862 graduate respondents across 13 faculties (Wisuda 135–138). Cleaned multi-source survey datasets, engineered automated spreadsheet pipelines, conducted employment transition &amp; competency gap analyses, and delivered executive strategic reports to university leadership.
+          </p>
+          <div class="project-tags-wrap">
+            <span>Executive Reporting</span>
+            <span>Survey Analytics</span>
+            <span>Competency Gap Analysis</span>
+            <span>Data Governance</span>
+            <span>Pusat Karier UIN Jakarta</span>
+          </div>
+          <a href="project-3.html" class="btn btn-primary" style="align-self: flex-start;">
             Explore Case Study →
           </a>
         </div>
